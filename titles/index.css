@@ -1,0 +1,224 @@
+::-moz-selection {
+     color: white;
+     background: rgba(42, 0, 168, 0.22);
+}
+
+::selection {
+     color: white;
+     background: rgba(42, 0, 168, 0.22);
+}
+
+body {
+     overscroll-behavior: none;
+     background-size: cover;
+     background-position: center right;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     color: #cecfd0;
+     font-weight: normal;
+     margin: 0;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     background-color: rgb(40, 40, 40);
+}
+
+a {
+     color: #cecfd0;
+}
+
+a:hover {
+     color: white;
+}
+
+nav {
+     z-index: 1;
+     height: 75px;
+     overflow: hidden;
+     position: fixed;
+     top: 0px;
+     z-index: 1;
+     width: 100vw;
+     background-color: rgb(10, 10, 10);
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+#nav {
+     display: flex;
+     flex-direction: row;
+     list-style-type: none;
+     align-items: center;
+     box-sizing: border-box;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     padding-inline-start: 40px;
+     font-size: 16px;
+     line-height: 1.5;
+}
+
+#nav li {
+     margin-right: 40px;
+}
+
+#nav a {
+     text-decoration: none;
+}
+
+header {
+     width: 100%;
+     margin-top: 75px;
+     height: 7.5vw;
+     background-color: rgb(25, 25, 25);
+     display: flex;
+     position: fixed;
+     top: 0;
+     z-index: 1;
+}
+
+main {
+     position: relative;
+     margin-top: calc(75px + 7.5vw);
+}
+
+#title {
+     user-select: none;
+     -moz-user-select: none;
+     text-align: left;
+     white-space: initial;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     vertical-align: middle;
+     margin-left: 2.5vw;
+     line-height: 1.25em;
+     overflow-wrap: break-word;
+     font-size: 3vw;
+}
+
+#search {
+     user-select: none;
+     -moz-user-select: none;
+     min-height: 27px;
+     position: fixed;
+     margin: 1vw;
+     background-color: rgb(20, 20, 20);
+     color: #cecfd0;
+     border: transparent;
+     border-radius: 5px;
+     padding: 0.75vw;
+     width: 98vw;
+     font-size: 1vw;
+     left: 0;
+     z-index: 1;
+}
+
+#search:focus {
+     outline: none;
+}
+
+#titles {
+     padding-top: 2.75vw;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     width: 95vw;
+     margin-left: 2.5vw;
+     margin-right: 2.5vw;
+}
+
+.cover {
+     min-width: 90px;
+     max-width: 189px;
+     width: 15vw;
+     height: auto;
+     margin: 2.5vw;
+     margin-bottom: 0;
+     border: 1px solid #cecfd0;
+     user-select: none;
+     -moz-user-select: none;
+     pointer-events: none;
+     -webkit-touch-callout: none;
+}
+
+.object {
+     min-width: 113.5px;
+     max-width: 286px;
+     width: 23vw;
+     margin: 1.5vw;
+     position: relative;
+}
+
+.manga {
+     min-width: 116px;
+     max-width: 250px;
+     width: 20vw;
+     margin-left: 1.5vw;
+     margin-right: 1.5vw;
+}
+
+.link,.link:hover,.link:visited,.link:active {
+     text-decoration: none;
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     user-select: none;
+     -moz-user-select: none;
+     color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+     #nav a {
+          font-size: 2.5vw;
+     }
+
+     nav {
+          height: 12.5vw;
+     }
+
+     header {
+          margin-top: 12.5vw;
+     }
+
+     #nav {
+          padding-inline-start: 5vw;
+     }
+
+     #nav li {
+          margin-right: 5vw;
+     }
+
+     main {
+          margin-top: calc(12.5vw + 7.5vw);
+     }
+}
+
+@media screen and (max-width: 1200px) {
+     .manga {
+          font-size: 1.3vw;
+     }
+
+     #search {
+          font-size: 10px;
+     }
+
+     #titles {
+          padding-top: calc(27px + 2vw);
+     }
+}
+
+@media screen and (max-width: 580px) {
+     .manga {
+          font-size: 7.5px;
+          margin-left: 8.75px;
+          margin-right: 8.75px;
+     }
+
+     .cover {
+          margin: 14.625px;
+          margin-bottom: 0;
+     }
+}

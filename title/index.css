@@ -1,0 +1,314 @@
+::-moz-selection {
+     color: white;
+     background: rgba(42, 0, 168, 0.22);
+}
+
+::selection {
+     color: white;
+     background: rgba(42, 0, 168, 0.22);
+}
+
+body {
+     overscroll-behavior: none;
+     background-size: cover;
+     background-position: center right;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     color: #cecfd0;
+     font-weight: normal;
+     margin: 0;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     background-color: rgb(40, 40, 40);
+}
+
+a {
+     color: #cecfd0;
+}
+
+a:hover {
+     color: white;
+}
+
+.error {
+     z-index: 0;
+     background-color: rgb(25, 25, 25);
+     position: fixed;
+     padding: 0;
+     margin: 0;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+}
+
+.error-center {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     vertical-align: middle;
+     padding-bottom: 10px;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+nav {
+     z-index: 1;
+     height: 75px;
+     overflow: hidden;
+     position: fixed;
+     top: 0px;
+     z-index: 1;
+     width: 100vw;
+     background-color: rgb(10, 10, 10);
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+#nav {
+     display: flex;
+     flex-direction: row;
+     list-style-type: none;
+     align-items: center;
+     box-sizing: border-box;
+     margin-block-start: 1em;
+     margin-block-end: 1em;
+     padding-inline-start: 40px;
+     font-size: 16px;
+     line-height: 1.5;
+}
+
+#nav li {
+     margin-right: 40px;
+}
+
+#nav a {
+     text-decoration: none;
+}
+
+header {
+     margin-top: 75px;
+     height: 25vw;
+     background-color: rgb(25, 25, 25);
+     display: flex;
+     position: relative;
+}
+
+@media screen and (max-width: 600px) {
+     #nav a {
+          font-size: 2.5vw;
+     }
+
+     nav {
+          height: 12.5vw;
+     }
+
+     header {
+          margin-top: 12.5vw;
+     }
+
+     #nav {
+          padding-inline-start: 5vw;
+     }
+
+     #nav li {
+          margin-right: 5vw;
+     }
+}
+
+#logo {
+     width: auto;
+     height: auto;
+     margin: 2.5vw;
+     border: 1px solid #cecfd0;
+     user-select: none;
+     -moz-user-select: none;
+     pointer-events: none;
+     -webkit-touch-callout: none;
+}
+
+.titles {
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     vertical-align: middle;
+     position: absolute;
+     top: 25%;
+     width: 75%;
+     text-align: left;
+     white-space: initial;
+     margin-left: 20vw;
+     margin-top: -3vw;
+}
+
+#title {
+     line-height: 1.25em;
+     overflow-wrap: break-word;
+     font-size: 3vw;
+}
+
+#aliases {
+     position: relative;
+     font-size: 1.5vw;
+     line-height: 1.5em;
+     margin-top: 1vw;
+     font-weight: normal;
+}
+
+.side {
+     position: fixed;
+     left: 0;
+     height: 100%;
+     width: 25vw;
+     background-color: rgb(50, 50, 50);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.sideDiv {
+     width: 75%;
+}
+
+@media screen and (max-width: 700px) {
+     .sideDiv {
+          font-size: 2.25vw;
+     }
+}
+
+@media screen and (max-width: 1000px) {
+     table#chapters {
+          font-size: 1.5vw;
+     }
+
+     span.badge {
+          font-size: calc(1.5vw-0.25em);
+     }
+
+     #chapterTitleSearch {
+          font-size: 1.5vw;
+     }
+
+}
+
+.table-title {
+     width: 25vw;
+}
+
+#author,
+#artist,
+#links {
+     margin-top: -10px;
+}
+
+.right {
+     position: fixed;
+     width: 75vw;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     transform: translateX(25vw);
+}
+
+table#chapters {
+     width: 50vw;
+     margin-top: 10px;
+}
+
+#chapters tr {
+     white-space: nowrap;
+     padding: 0 1em;
+     line-height: 3em;
+     font-weight: normal;
+     font-size: 1em;
+}
+
+#chapters th {
+     white-space: nowrap;
+     padding: 0 1em;
+     line-height: 3em;
+     font-weight: normal;
+     font-size: 1em;
+}
+
+#chapters td {
+     padding-right: 5px;
+     border-top: 1px solid #444;
+     box-shadow: none !important;
+     outline: none !important;
+}
+
+#chapters a {
+     text-decoration: none;
+}
+
+.table-title,
+.chapter-title {
+     padding-left: 1vw;
+     text-align: left;
+}
+
+.chapter-date,
+.chapter-mangadex {
+     text-align: center;
+}
+
+span.badge {
+     font-weight: bold;
+     font-size: 0.75em;
+}
+
+#chapterTitleSearch {
+     transform: translateY(-2.5px);
+     margin-left: 50px;
+     background-color: rgb(20, 20, 20);
+     color: #cecfd0;
+     border: transparent;
+     border-radius: 5px;
+     padding: 5px;
+     width: 17.5vw;
+     padding-left: 5px;
+}
+
+#chapterTitleSearch:focus {
+     outline: none;
+}
+
+a.button {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    background-color: transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: rgb(190, 190, 190);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    height: 48px;
+    line-height: 45px;
+    margin: 0.5em;
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.button:link,
+.button:visited,
+.button:active {
+    color: rgb(190, 190, 190);
+}
+
+.button:hover {
+    color: rgb(190, 190, 190);
+    background-color: rgba(255, 255, 255, 0.1);
+}
