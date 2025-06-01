@@ -98,7 +98,7 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
           }
           a.setAttribute("title", "Chapter " + manga.chapters[i] + alt);
           a.textContent = manga.chapters[i] + alt;
-          a.href = "../read/?manga=" + urlParams.get('manga') + "&ch=" + manga.chapters[i] + "&pg=1";
+          a.href = "../read/?manga=" + urlParams.get('manga') + "&ch=" + manga.chapters[i];
           td.appendChild(a);
           tr.appendChild(td);
           var td = document.createElement("td");

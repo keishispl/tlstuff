@@ -94,6 +94,7 @@ header {
      margin-top: 35px;
      line-height: 1.25em;
      font-size: 25px;
+     cursor: pointer;
 }
 
 #title {
@@ -111,6 +112,123 @@ header {
      text-decoration: none;
 }
 
+.right-side {
+     margin-top: 10px;
+     margin-right: 20px;
+     top: 0px;
+     right: 0px;
+     position: absolute;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+#chapter-button {
+     cursor: pointer;
+     width: 200px;
+     height: 50px;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     background-color: rgb(44, 44, 44);
+     border-radius: 10px;
+     text-align: right;
+     margin-right: 0px;
+     z-index: 5001;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+#page-button {
+     cursor: pointer;
+     width: 200px;
+     height: 50px;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     margin-top: 60px;
+     background-color: rgb(44, 44, 44);
+     border-radius: 10px;
+     text-align: right;
+     margin-right: 0px;
+     z-index: 4901;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+#chapter-button-text,#page-button-text {
+     position: absolute;
+     top: 0px;
+     right: 0px;
+     margin-right: 15px;
+     margin-top: 5px;
+     font-size: 10px;
+}
+
+#chapter-button-value,#page-button-value {
+     position: absolute;
+     right: 0px;
+     bottom: 0px;
+     margin-bottom: 5px;
+     margin-right: 15px;
+     font-size: 16px;
+}
+
+#chapters {
+     right: 0px;
+     width: 200px;
+     max-height: 500px;
+     min-height: 20px;
+     border-radius: 0px 0px 10px 10px;
+     background-color: rgb(30, 30, 30);
+     position: absolute;
+     margin-top: 30px;
+     padding-top: 15px;
+     padding-bottom: 5px;
+     overflow-y: scroll;
+     transition: visibility 0s, opacity 0.15s ease, transform 0.15s ease;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+#pages {
+     right: 0px;
+     width: 200px;
+     max-height: 500px;
+     min-height: 20px;
+     border-radius: 0px 0px 10px 10px;
+     background-color: rgb(30, 30, 30);
+     position: absolute;
+     margin-top: 90px;
+     padding-top: 15px;
+     padding-bottom: 5px;
+     overflow-y: scroll;
+     transition: visibility 0s, opacity 0.15s ease, transform 0.15s ease;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+.spec-chapter,.spec-page {
+     margin: 2.5px 15px 2.5px 10px;
+     padding: 5px 0px 5px 10px;
+     text-align: left;
+     border-radius: 5px;
+}
+.spec-chapter:hover,.spec-page:hover {
+     background-color: rgba(50, 50, 50, 0.3)
+}
+.spec-chapter>a,.spec-page>a {
+     text-decoration: none;
+}
+
+.spec-chapter-current,.spec-chapter-current:hover,.spec-page-current,.spec-page-current:hover {
+     background-color: purple;
+}
+
+.spec-chapter-link,.spec-page-link {
+     flex-wrap: wrap;
+     display: flex;
+}
+
+#long {
+     width: 100vw;
+     height: 100%;
+}
+
 main {
      position: relative;
      margin-top: 225px;
@@ -118,6 +236,7 @@ main {
      align-items: center;
      justify-content: center;
      display: flex;
+     z-index: 0;
 }
 
 #right,
@@ -212,6 +331,7 @@ a.button {
      align-items: center;
      background-color: none;
      transition: background-color 0.1s linear, height 0.2s linear;
+     z-index: 1000;
 }
 
 .progress {
@@ -261,6 +381,7 @@ a.button {
      height: 100vh;
      transition: background-color 0.1s linear;
      cursor: pointer;
+     z-index: 999;
 }
 
 #access-right {

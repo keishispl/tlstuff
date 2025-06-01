@@ -22,16 +22,29 @@
 </head>
 
 <body>
-     <nav>
+     <nav id="bignav">
           <ul id="nav"></ul>
      </nav>
      <header>
-          <div class="titles">
+          <div class="titles" id="titles">
                <p id="chapter"></p>
                <p id="title"></p>
           </div>
+          <div class="right-side">
+               <div id="chapter-button">
+                    <p id="chapter-button-text">Chapter</p>
+                    <p id="chapter-button-value"></p>
+               </div>
+               <div id="chapters" style="visibility: hidden; opacity: 0; z-index: -1;"></div>
+               <div id="page-button">
+                    <p id="page-button-text">Page</p>
+                    <p id="page-button-value"></p>
+               </div>
+               <div id="pages" style="visibility: hidden; opacity: 0; z-index: -1;"></div>
+          </div>
+          <div id="long"></div>
      </header>
-     <main>
+     <main id="main">
           <div id="access" style="visibility: hidden; opacity: 0; z-index: -1;">
                <div id="access-close"><i class="fa-solid fa-xmark"></i></div>
                <h1>Accessibility Guide</h1>

@@ -239,11 +239,158 @@ function initializePage() {
                document.getElementById("access-left").addEventListener("click", () => {
                     handleLeftArrow(chapter, manga);
                     progressBarUpdate();
-               })
+               });
                document.getElementById("access-right").addEventListener("click", () => {
                     handleRightArrow(chapter, manga);
                     progressBarUpdate();
-               })
+               });
+
+               function formatButtons() {
+
+                    function scrollParentToChild(parent, child) {
+
+                         // Where is the parent on page
+                         var parentRect = parent.getBoundingClientRect();
+                         // What can you see?
+                         var parentViewableArea = {
+                              height: parent.clientHeight,
+                              width: parent.clientWidth
+                         };
+
+                         // Where is the child
+                         var childRect = child.getBoundingClientRect();
+                         // Is the child viewable?
+                         var isViewable = (childRect.top >= parentRect.top) && (childRect.bottom <= parentRect.top + parentViewableArea.height);
+
+                         // if you can't see the child try to scroll parent
+                         if (!isViewable) {
+                              // Should we scroll using top or bottom? Find the smaller ABS adjustment
+                              const scrollTop = childRect.top - parentRect.top;
+                              const scrollBot = childRect.bottom - parentRect.bottom;
+                              if (Math.abs(scrollTop) < Math.abs(scrollBot)) {
+                                   // we're near the top of the list
+                                   parent.scrollTop += scrollTop;
+                              } else {
+                                   // we're near the bottom of the list
+                                   parent.scrollTop += scrollBot + 100;
+                              }
+                         }
+
+                    }
+
+                    var chaptersDiv = document.getElementById("chapters");
+                    var pagesDiv = document.getElementById("pages");
+
+                    document.getElementById("chapter-button").addEventListener("click", () => {
+                         if (chaptersDiv.style.visibility === "visible") {
+                              chaptersDiv.style.visibility = "hidden";
+                              chaptersDiv.style.opacity = "0";
+                              chaptersDiv.style.zIndex = "-1";
+                              chaptersDiv.style.transform = "translateY(0px)";
+                              chaptersDiv.scrollTo(0, 0);
+                         } else {
+                              chaptersDiv.style.visibility = "visible";
+                              chaptersDiv.style.opacity = "1";
+                              chaptersDiv.style.zIndex = "5000";
+                              chaptersDiv.style.transform = "translateY(10px)";
+                              scrollParentToChild(chaptersDiv, document.getElementById("spec-chapter_" + urlParams.get('ch')));
+
+                              if (pagesDiv.style.visibility === "visible") {
+                                   pagesDiv.style.visibility = "hidden";
+                                   pagesDiv.style.opacity = "0";
+                                   pagesDiv.style.zIndex = "-1";
+                                   pagesDiv.style.transform = "translateY(0px)";
+                                   pagesDiv.scrollTo(0, 0);
+                              }
+                         }
+                    });
+
+                    document.getElementById("chapter-button-value").textContent = "Chapter " + urlParams.get('ch');
+
+                    (manga.chapters).reverse().forEach(e => {
+                         var p = document.createElement("div");
+                         p.className = "spec-chapter";
+                         if (`${e}` === urlParams.get('ch')) {
+                              p.classList.add("spec-chapter-current");
+                         }
+                         p.id = "spec-chapter_" + e;
+                         chaptersDiv.appendChild(p);
+
+                         var a = document.createElement("a");
+                         if (`${e}` !== urlParams.get('ch')) {
+                              a.href = `?manga=${urlParams.get('manga')}&ch=${e}`;
+                         }
+                         a.textContent = "Chapter " + e;
+                         a.className = "spec-chapter-link";
+                         p.appendChild(a);
+                    });
+
+
+                    document.getElementById("page-button").addEventListener("click", () => {
+                         if (pagesDiv.style.visibility === "visible") {
+                              pagesDiv.style.visibility = "hidden";
+                              pagesDiv.style.opacity = "0";
+                              pagesDiv.style.zIndex = "-1";
+                              pagesDiv.style.transform = "translateY(0px)";
+                              pagesDiv.scrollTo(0, 0);
+                         } else {
+                              pagesDiv.style.visibility = "visible";
+                              pagesDiv.style.opacity = "1";
+                              pagesDiv.style.zIndex = "4900";
+                              pagesDiv.style.transform = "translateY(10px)";
+                              scrollParentToChild(pagesDiv, document.getElementById("spec-page_" + urlParams.get('pg')));
+
+                              if (chaptersDiv.style.visibility === "visible") {
+                                   chaptersDiv.style.visibility = "hidden";
+                                   chaptersDiv.style.opacity = "0";
+                                   chaptersDiv.style.zIndex = "-1";
+                                   chaptersDiv.style.transform = "translateY(0px)";
+                                   chaptersDiv.scrollTo(0, 0);
+                              }
+                         }
+                    });
+
+                    document.getElementById("page-button-value").textContent = "Page " + urlParams.get('pg');
+
+                    (chapter.pages).reverse().forEach(e => {
+                         var p = document.createElement("div");
+                         p.className = "spec-page";
+                         if (`${e[0]}` === urlParams.get('pg')) {
+                              p.classList.add("spec-page-current");
+                         }
+                         p.id = "spec-page_" + e[0];
+                         pagesDiv.appendChild(p);
+
+                         var a = document.createElement("a");
+                         if (`${e[0]}` !== urlParams.get('pg')) {
+                              a.href = `?manga=${urlParams.get('manga')}&ch=${urlParams.get('ch')}&pg=${e[0]}`;
+                         }
+                         a.textContent = "Page " + e.join("ー");
+                         a.className = "spec-page-link";
+                         p.appendChild(a);
+                    });
+
+                    ["long", "titles", "bignav", "main"].forEach(e => {
+                         document.getElementById(e).addEventListener("click", () => {
+                              if (chaptersDiv.style.visibility === "visible") {
+                                   chaptersDiv.style.visibility = "hidden";
+                                   chaptersDiv.style.opacity = "0";
+                                   chaptersDiv.style.zIndex = "-1";
+                                   chaptersDiv.style.transform = "translateY(0px)";
+                                   chaptersDiv.scrollTo(0, 0);
+                              }
+                              if (pagesDiv.style.visibility === "visible") {
+                                   pagesDiv.style.visibility = "hidden";
+                                   pagesDiv.style.opacity = "0";
+                                   pagesDiv.style.zIndex = "-1";
+                                   pagesDiv.style.transform = "translateY(0px)";
+                                   pagesDiv.scrollTo(0, 0);
+                              }
+                         })
+                    })
+               }
+
+               formatButtons();
           } else {
                // Redirect if chapter is not found
                window.location.href = "../title/?manga=" + urlParams.get('manga');
@@ -286,7 +433,7 @@ function handleLeftArrow(chapter, manga) {
 
      if (!array(chapter.pages).includes(`${parseInt(urlParams.get('pg'))}`) && parseInt(urlParams.get('pg')) > 0) {
           try {
-               const nextChapterIndex = manga.chapters.indexOf(parseFloat(urlParams.get('ch'))) + 1;
+               const nextChapterIndex = manga.chapters.indexOf(parseFloat(urlParams.get('ch'))) - 1;
                const nextChapter = jsonFromFile(`title/${urlParams.get('manga')}/${manga.chapters[nextChapterIndex]}/data`);
                setParam(null, `${manga.chapters[nextChapterIndex]}`, `${nextChapter.pages[0][0]}`, nextChapter.pages, manga, nextChapter);
                window.location.href = window.location.href;
@@ -310,7 +457,7 @@ function handleRightArrow(chapter, manga) {
 
      if (parseInt(urlParams.get('pg')) === 0) {
           try {
-               const previousChapterIndex = manga.chapters.indexOf(parseFloat(urlParams.get('ch'))) - 1;
+               const previousChapterIndex = manga.chapters.indexOf(parseFloat(urlParams.get('ch'))) + 1;
                const previousChapter = jsonFromFile(`title/${urlParams.get('manga')}/${manga.chapters[previousChapterIndex]}/data`);
                var lastArray = previousChapter.pages[previousChapter.pages.length - 1];
                if (arraySecond(previousChapter.pages).includes(`${lastArray[lastArray.length - 1]}`)) {
