@@ -123,11 +123,13 @@ main {
 }
 
 @media screen and (max-width: 1262px) {
+
      #right,
      #left {
           height: auto;
           width: 49.5vw;
      }
+
      #main {
           height: auto;
           width: 95vw;
@@ -158,36 +160,200 @@ main {
 }
 
 a.button {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    background-color: transparent;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: rgb(190, 190, 190);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 20px;
-    height: 48px;
-    line-height: 45px;
-    margin: 0.5em;
-    width: 250px;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+     backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+     -ms-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
+     background-color: transparent;
+     border-radius: 5px;
+     box-sizing: border-box;
+     color: rgb(190, 190, 190);
+     cursor: pointer;
+     display: inline-block;
+     font-size: 20px;
+     height: 48px;
+     line-height: 45px;
+     margin: 0.5em;
+     width: 250px;
+     text-align: center;
+     text-decoration: none;
+     white-space: nowrap;
+     backdrop-filter: blur(10px);
+     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .button:link,
 .button:visited,
 .button:active {
-    color: rgb(190, 190, 190);
+     color: rgb(190, 190, 190);
 }
 
 .button:hover {
-    color: rgb(190, 190, 190);
-    background-color: rgba(255, 255, 255, 0.1);
+     color: rgb(190, 190, 190);
+     background-color: rgba(255, 255, 255, 0.1);
+}
+
+#progressbar {
+     display: flex;
+     position: absolute;
+     bottom: 0px;
+     width: 97.5vw;
+     padding-left: 1.25vw;
+     padding-right: 1.25vw;
+     align-items: center;
+     background-color: none;
+     transition: background-color 0.1s linear, height 0.2s linear;
+}
+
+.progress {
+     display: flex;
+     flex-basis: 0;
+     flex-grow: 1;
+     height: 5px;
+     margin: 2px;
+     text-align: center;
+     border-radius: 5px;
+     justify-content: center;
+     transition: background-color 0.1s linear, margin-bottom 0.2s linear;
+     min-width: 0;
+     overflow: hidden;
+     margin-bottom: 5px;
+     cursor: pointer;
+}
+
+.progresstext {
+     padding: 5px;
+     border-radius: 5px;
+     width: 75px;
+     background-color: rgb(50, 50, 50);
+     position: absolute;
+     bottom: 30px;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+.hover {
+     height: 20px;
+     margin-bottom: 0px;
+}
+
+.hover2 {
+     height: 40px;
+     background-color: rgb(50, 50, 50);
+}
+
+#access-right,
+#access-left {
+     display: flex;
+     position: absolute;
+     bottom: 0px;
+     width: 35vw;
+     height: 100vh;
+     transition: background-color 0.1s linear;
+     cursor: pointer;
+}
+
+#access-right {
+     right: 0px;
+}
+
+#access-left {
+     left: 0px;
+}
+
+#access-center {
+     display: flex;
+     position: absolute;
+     bottom: 0px;
+     width: 30vw;
+     height: 100vh;
+     transition: background-color 0.1s linear;
+     cursor: pointer;
+     left: 35vw;
+}
+
+#access {
+     transition: visibility 0s, opacity 0.1s ease;
+     width: 50vw;
+     height: 50vh;
+     background-color: rgb(25, 25, 25);
+     border-radius: 5px;
+     position: absolute;
+     bottom: 25vh;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     z-index: 1002;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+#access-close {
+     position: absolute;
+     top: 10px;
+     right: 15px;
+     font-size: 40px;
+     cursor: pointer;
+     transition: visibility 0s, opacity 0.1s ease;
+}
+
+a.key>.fa-arrow-left {
+     border-radius: 5px;
+     padding: 10px;
+     padding-left: 12.5px;
+     padding-right: 12.5px;
+     font-size: 40px;
+     box-shadow: rgba(50, 50, 50) 5px 5px;
+     background-color: rgb(0, 0, 100);
+}
+a.key>.fa-arrow-right {
+     border-radius: 5px;
+     padding: 10px;
+     padding-left: 12.5px;
+     padding-right: 12.5px;
+     font-size: 40px;
+     box-shadow: rgba(50, 50, 50) 5px 5px;
+     background-color: rgb(100, 0, 0);
+}
+
+p.key {
+     margin-top: 25px;
+     margin-bottom: 25px;
+     font-size: 25px;
+     text-align: left;
+}
+
+#keys {
+     padding-left: 5vw;
+     width: 45vw;
+     overflow-wrap: normal;
+}
+
+#access>h1 {
+     transition: margin-top 0.1s linear;
+}
+
+@media screen and (max-width: 900px) {
+     #access>h1 {
+          margin-top: 50px;
+     }
+}
+
+.seperator::after {
+     content: "ー";
+     margin-left: 30px;
+     margin-right: 25px;
+}
+.seperator:hover {
+     color: #cecfd0;
+}
+
+#access-cover {
+     position: absolute;
+     height: 100vh;
+     width: 100vw;
+     bottom: 0px;
+     left: 0px;
+     background-color: rgba(0, 0, 0, 0.3);
+     z-index: 1001;
 }

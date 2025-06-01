@@ -157,14 +157,93 @@ function initializePage() {
                     setParam(null, null, parseInt(urlParams.get('pg')) - 1, chapter.pages, manga, chapter);
                }
 
+               var progressArray = [];
+               var progressBar = document.getElementById("progressbar");
+               for (var i = chapter.pages.length - 1; i >= 0; i--) {
+                    const progress = document.createElement("div");
+                    progress.classList.add("progress");
+                    progress.id = "progress_" + chapter.pages[i].join("-");
+                    progress.style.zIndex = `${chapter.pages.length + 2 - i}`;
+                    progressBar.appendChild(progress);
+
+                    progressArray.push(progress);
+
+                    const progresstext = document.createElement("p");
+                    progresstext.classList.add("progresstext");
+                    progresstext.textContent = chapter.pages[i].join("ー");
+                    progresstext.id = "progresstext_" + chapter.pages[i].join("-");
+                    progress.appendChild(progresstext);
+
+                    progresstext.style.display = 'none';
+
+                    progress.addEventListener('mouseenter', () => {
+                         progresstext.style.display = 'block';
+                    });
+
+                    progress.addEventListener('mouseleave', () => {
+                         progresstext.style.display = 'none';
+                    });
+
+                    progress.addEventListener('click', () => {
+                         setParam(null, null, parseInt(progress.id.split("_")[1].split("-")[0]), chapter.pages, manga, chapter);
+                         progressBarUpdate()
+                    });
+               }
+
+               document.addEventListener('mousemove', function (e) {
+                    if (document.getElementById("access").style.visibility === "hidden") {
+                         if (e.pageY < document.body.scrollHeight - 75) {
+                              progressBar.classList.remove("hover2");
+                              progressArray.forEach(f => f.classList.remove("hover"));
+                         } else {
+                              progressBar.classList.add("hover2");
+                              progressArray.forEach(f => f.classList.add("hover"));
+                         }
+                    }
+               });
+               document.addEventListener('mouseenter', function (e) {
+                    if (document.getElementById("access").style.visibility === "hidden") {
+                         if (e.pageY < document.body.scrollHeight - 75) {
+                              progressBar.classList.remove("hover2");
+                              progressArray.forEach(f => f.classList.remove("hover"));
+                         } else {
+                              progressBar.classList.add("hover2");
+                              progressArray.forEach(f => f.classList.add("hover"));
+                         }
+                    }
+               });
+
+               function progressBarUpdate() {
+                    progressBar.querySelectorAll("div").forEach(e => {
+                         var id = parseInt(e.id.split("_")[1].split("-")[0]);
+                         if (id > parseInt(urlParams.get('pg'))) {
+                              e.style.backgroundColor = "lightcoral";
+                         } else {
+                              e.style.backgroundColor = "purple";
+                         }
+                    })
+               }
+
                // Set page titles and images
                setTitles(manga, chapter, urlParams);
                setImages(chapter.pages, urlParams);
+               progressBarUpdate();
 
                // Add event listener for keydown events
                window.addEventListener("keydown", e => {
-                    handleKeydown(e, chapter, manga);
+                    if (document.getElementById("access").style.visibility === "hidden") {
+                         handleKeydown(e, chapter, manga);
+                         progressBarUpdate();
+                    }
                });
+               document.getElementById("access-left").addEventListener("click", () => {
+                    handleLeftArrow(chapter, manga);
+                    progressBarUpdate();
+               })
+               document.getElementById("access-right").addEventListener("click", () => {
+                    handleRightArrow(chapter, manga);
+                    progressBarUpdate();
+               })
           } else {
                // Redirect if chapter is not found
                window.location.href = "../title/?manga=" + urlParams.get('manga');
@@ -295,6 +374,39 @@ function displayMangaNotFoundError() {
 
      document.title = "Manga Not Found - Keishi TL Stuff";
 }
+
+function closeAccess() {
+     document.getElementById("access-right").style.backgroundColor = "transparent";
+     document.getElementById("access-left").style.backgroundColor = "transparent";
+     document.getElementById("access").style.visibility = "hidden";
+     document.getElementById("access").style.opacity = "0";
+     document.getElementById("access").style.zIndex = "-1";
+     document.getElementById("access-cover").style.visibility = "hidden";
+     document.getElementById("access-cover").style.opacity = "0";
+     document.getElementById("access-cover").style.zIndex = "-1";
+}
+function openAccess() {
+     document.getElementById("access-right").style.backgroundColor = "rgba(100, 0, 0, 0.3)";
+     document.getElementById("access-left").style.backgroundColor = "rgba(0, 0, 100, 0.3)";
+     document.getElementById("access").style.visibility = "visible";
+     document.getElementById("access").style.opacity = "1";
+     document.getElementById("access").style.zIndex = "1002";
+     document.getElementById("access-cover").style.visibility = "visible";
+     document.getElementById("access-cover").style.opacity = "1";
+     document.getElementById("access-cover").style.zIndex = "1001";
+}
+
+document.getElementById("access-close").addEventListener("click", () => {
+     closeAccess();
+})
+document.getElementById("access-cover").addEventListener("click", () => {
+     closeAccess();
+})
+document.getElementById("access-center").addEventListener("click", () => {
+     openAccess();
+})
+
+closeAccess();
 
 // Initialize page on load
 initializePage();
