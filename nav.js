@@ -9,13 +9,23 @@ function parseNavItem(name, link) {
 
     // Create a link element
     var a = document.createElement("a");
-    a.textContent = name; // Set the display name of the link
 
     // Append the link to the list item
     li.appendChild(a);
 
     // Append the list item to the navigation div
     navDiv.appendChild(li);
+
+    // If the link is an absolute URL, set it as the href of the link, and add a funny icon
+    if (link.includes('https://')) {
+        a.innerHTML = name + ` <i class="fa-solid fa-up-right-from-square"></i>`
+        a.href = link;
+        a.target = "_blank";
+        return;
+    }
+
+    // Set the display name of the link
+    a.textContent = name;
 
     // Determine the base path
     var ppath = "/";
@@ -35,3 +45,4 @@ const navDiv = document.getElementById("nav");
 // parseNavItem("Home", "");
 parseNavItem("Titles", "titles");
 // parseNavItem("About", "about");
+parseNavItem("Source Code", "https://github.com/keishispl/tlstuff");

@@ -190,6 +190,7 @@ function initializePage() {
                     });
                }
 
+               // Add hover effects
                document.addEventListener('mousemove', function (e) {
                     if (document.getElementById("access").style.visibility === "hidden") {
                          if (e.pageY < document.body.scrollHeight - 75) {
@@ -213,6 +214,12 @@ function initializePage() {
                     }
                });
 
+               /**
+                * Updates the background color of progress bar elements based on the current page number.
+                * Each element in the progress bar is associated with a specific page number.
+                * Elements representing pages greater than the current page are colored lightcoral,
+                * while elements representing the current page and earlier are colored purple.
+                */
                function progressBarUpdate() {
                     progressBar.querySelectorAll("div").forEach(e => {
                          var id = parseInt(e.id.split("_")[1].split("-")[0]);
@@ -245,8 +252,18 @@ function initializePage() {
                     progressBarUpdate();
                });
 
+               /**
+                * Formats the buttons on the page.
+                * This includes adding a click event listener to the chapter and page buttons,
+                * as well as adding the current chapter and page numbers to the buttons.
+                * It also formats the chapter and page lists.
+                */
                function formatButtons() {
-
+                    /**
+                     * Scrolls the parent element until the child element is visible.
+                     * @param {HTMLElement} parent - The parent element to scroll.
+                     * @param {HTMLElement} child - The child element to make visible.
+                     */
                     function scrollParentToChild(parent, child) {
 
                          // Where is the parent on page
@@ -275,12 +292,13 @@ function initializePage() {
                                    parent.scrollTop += scrollBot + 100;
                               }
                          }
-
                     }
 
+                    // Get the chapter and page lists
                     var chaptersDiv = document.getElementById("chapters");
                     var pagesDiv = document.getElementById("pages");
 
+                    // Add event listeners to the chapter button
                     document.getElementById("chapter-button").addEventListener("click", () => {
                          if (chaptersDiv.style.visibility === "visible") {
                               chaptersDiv.style.visibility = "hidden";
@@ -305,8 +323,10 @@ function initializePage() {
                          }
                     });
 
+                    // Add the current chapter number to the chapter button
                     document.getElementById("chapter-button-value").textContent = "Chapter " + urlParams.get('ch');
 
+                    // Add the chapter list
                     (manga.chapters).reverse().forEach(e => {
                          var p = document.createElement("div");
                          p.className = "spec-chapter";
@@ -325,7 +345,7 @@ function initializePage() {
                          p.appendChild(a);
                     });
 
-
+                    // Add event listeners to the page button
                     document.getElementById("page-button").addEventListener("click", () => {
                          if (pagesDiv.style.visibility === "visible") {
                               pagesDiv.style.visibility = "hidden";
@@ -350,8 +370,10 @@ function initializePage() {
                          }
                     });
 
+                    // Add the current page number to the page button
                     document.getElementById("page-button-value").textContent = "Page " + urlParams.get('pg');
 
+                    // Add the page list
                     (chapter.pages).reverse().forEach(e => {
                          var p = document.createElement("div");
                          p.className = "spec-page";
@@ -370,6 +392,7 @@ function initializePage() {
                          p.appendChild(a);
                     });
 
+                    // Add event listeners outside the list to close the list on click
                     ["long", "titles", "bignav", "main"].forEach(e => {
                          document.getElementById(e).addEventListener("click", () => {
                               if (chaptersDiv.style.visibility === "visible") {
@@ -522,6 +545,9 @@ function displayMangaNotFoundError() {
      document.title = "Manga Not Found - Keishi TL Stuff";
 }
 
+/**
+ * Hides the accessibility menu.
+ */
 function closeAccess() {
      document.getElementById("access-right").style.backgroundColor = "transparent";
      document.getElementById("access-left").style.backgroundColor = "transparent";
@@ -532,6 +558,10 @@ function closeAccess() {
      document.getElementById("access-cover").style.opacity = "0";
      document.getElementById("access-cover").style.zIndex = "-1";
 }
+
+/**
+ * Makes the accessibility menu visible.
+ */
 function openAccess() {
      document.getElementById("access-right").style.backgroundColor = "rgba(100, 0, 0, 0.3)";
      document.getElementById("access-left").style.backgroundColor = "rgba(0, 0, 100, 0.3)";
@@ -543,6 +573,7 @@ function openAccess() {
      document.getElementById("access-cover").style.zIndex = "1001";
 }
 
+// Event listeners for the accessibility menu
 document.getElementById("access-close").addEventListener("click", () => {
      closeAccess();
 })
