@@ -87,15 +87,9 @@ function setImages(item, urlParams) {
  * @param {URLSearchParams} urlParams The URL parameters
  */
 function setTitles(manga, chapter, urlParams) {
-     var alt = "";
-     if (chapter.alt) {
-          if (chapter.alt.length > 0) {
-               alt = " - " + chapter.alt;
-          }
-     }
      document.title = urlParams.get('pg') + " | Chapter " + urlParams.get('ch') + " - " + manga.title + " - Keishi TL Stuff";
 
-     document.getElementById("chapter").textContent = "Chapter " + urlParams.get('ch') + alt;
+     document.getElementById("chapter").textContent = chapter.alt.length > 0 ? chapter.alt : "Chapter " + urlParams.get('ch');
 
      document.getElementById("title").innerHTML = `<a href="` + "../title/?manga=" + urlParams.get('manga') + `">` + manga.title + `</a>`;
 }
