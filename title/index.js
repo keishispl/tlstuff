@@ -198,7 +198,7 @@ function displayMangaNotFoundError() {
      var img = document.createElement("img");
      img.width = "250";
      img.height = "250";
-     img.src = "./error.gif";
+     img.src = "../error.gif";
      img.draggable = false;
      img.style.borderRadius = "50px";
      img.style.margin = "25px";

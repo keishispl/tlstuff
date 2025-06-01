@@ -21,6 +21,7 @@ body {
      justify-content: center;
      text-align: center;
      background-color: rgb(40, 40, 40);
+     font-family: "Hiragino Kaku Gothic", sans-serif;
 }
 
 a {
@@ -36,6 +37,7 @@ nav {
      z-index: 1;
      height: 75px;
      overflow: hidden;
+     overflow-x: scroll;
      position: fixed;
      top: 0px;
      z-index: 1;

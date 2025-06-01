@@ -15,7 +15,7 @@
      <meta property="og:url" content="https://keishispl.github.io/">
      <meta property="og:site_name" content="圭紫">
 
-     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+     <link href="../fonts/font.css" type="text/css" rel="stylesheet">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" type="text/css"
           rel="stylesheet">
      <link href="index.css" type="text/css" rel="stylesheet">
@@ -44,19 +44,21 @@
                </div>
           </div>
           <div class="right">
-               <table id="chapters" class="table table-hover" style="user-select: none;">
-                    <thead>
-                         <tr>
-                              <th class="table-title" scope="col">Title<input id="chapterTitleSearch" type="text"
-                                        placeholder="⌕ Search" autocomplete="off" />
-                              </th>
-                              <th scope="col">Last Updated</th>
-                              <th scope="col">MangaDex</th>
+               <div class="rightDiv">
+                    <table id="chapters" class="table table-hover" style="user-select: none;">
+                         <thead>
+                              <tr class="table-header">
+                                   <th class="table-title" scope="col">Title<input id="chapterTitleSearch" type="text"
+                                             placeholder="⌕ Search" autocomplete="off" />
+                                   </th>
+                                   <th scope="col">Last Updated</th>
+                                   <th scope="col">MangaDex</th>
 
-                         </tr>
-                    </thead>
-                    <tbody id="chapterTable"></tbody>
-               </table>
+                              </tr>
+                         </thead>
+                         <tbody id="chapterTable"></tbody>
+                    </table>
+               </div>
           </div>
      </main>
      <script src="index.js"></script>

@@ -21,6 +21,8 @@ body {
      justify-content: center;
      text-align: center;
      background-color: rgb(40, 40, 40);
+     overflow-y: hidden;
+     font-family: "Hiragino Kaku Gothic", sans-serif;
 }
 
 a {
@@ -59,6 +61,7 @@ nav {
      z-index: 1;
      height: 75px;
      overflow: hidden;
+     overflow-x: scroll;
      position: fixed;
      top: 0px;
      z-index: 1;
@@ -93,11 +96,56 @@ nav {
 }
 
 header {
+     top: 0;
+     left: 0;
      margin-top: 75px;
      height: 25vw;
      background-color: rgb(25, 25, 25);
      display: flex;
-     position: relative;
+     position: fixed;
+     width: 100vw;
+}
+
+main {
+     margin-top: calc(25vw + 75px);
+}
+
+.side {
+     position: fixed;
+     left: 0;
+     height: calc(100vh - 25vw - 75px);
+     width: 25vw;
+     background-color: rgb(50, 50, 50);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.right {
+     position: fixed;
+     width: 75vw;
+     height: calc(100vh - 25vw - 75px);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     transform: translateX(25vw);
+}
+
+table#chapters {
+     width: 50vw;
+}
+
+.rightDiv {
+     overflow-y: scroll;
+     display: block;
+     height: calc(100vh - 25vw - 75px - 10px - 10px);
+     margin-top: 10px;
+}
+
+.table-header {
+     position: sticky;
+     top: 0;
+     background-color: rgb(40, 40, 40);
 }
 
 @media screen and (max-width: 600px) {
@@ -111,6 +159,19 @@ header {
 
      header {
           margin-top: 12.5vw;
+     }
+
+     main {
+          margin-top: calc(12.5vw + 25vw);
+     }
+
+     .side,
+     .right {
+          height: calc(100vh - 12.5vw - 25vw);
+     }
+
+     .rightDiv {
+          height: calc(100vh - 12.5vw - 25vw - 10px - 10px);
      }
 
      #nav {
@@ -159,17 +220,6 @@ header {
      font-weight: normal;
 }
 
-.side {
-     position: fixed;
-     left: 0;
-     height: 100%;
-     width: 25vw;
-     background-color: rgb(50, 50, 50);
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-}
-
 .sideDiv {
      width: 75%;
 }
@@ -203,21 +253,6 @@ header {
 #artist,
 #links {
      margin-top: -10px;
-}
-
-.right {
-     position: fixed;
-     width: 75vw;
-     height: 100%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     transform: translateX(25vw);
-}
-
-table#chapters {
-     width: 50vw;
-     margin-top: 10px;
 }
 
 #chapters tr {
@@ -280,36 +315,36 @@ span.badge {
 }
 
 a.button {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    background-color: transparent;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: rgb(190, 190, 190);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 20px;
-    height: 48px;
-    line-height: 45px;
-    margin: 0.5em;
-    width: 250px;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+     backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+     -ms-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
+     background-color: transparent;
+     border-radius: 5px;
+     box-sizing: border-box;
+     color: rgb(190, 190, 190);
+     cursor: pointer;
+     display: inline-block;
+     font-size: 20px;
+     height: 48px;
+     line-height: 45px;
+     margin: 0.5em;
+     width: 250px;
+     text-align: center;
+     text-decoration: none;
+     white-space: nowrap;
+     backdrop-filter: blur(10px);
+     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .button:link,
 .button:visited,
 .button:active {
-    color: rgb(190, 190, 190);
+     color: rgb(190, 190, 190);
 }
 
 .button:hover {
-    color: rgb(190, 190, 190);
-    background-color: rgba(255, 255, 255, 0.1);
+     color: rgb(190, 190, 190);
+     background-color: rgba(255, 255, 255, 0.1);
 }

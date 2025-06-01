@@ -21,6 +21,7 @@ body {
      justify-content: center;
      text-align: center;
      background-color: rgb(40, 40, 40);
+     font-family: "Hiragino Kaku Gothic", sans-serif;
 }
 
 a {
@@ -36,6 +37,7 @@ nav {
      z-index: 1;
      height: 75px;
      overflow: hidden;
+     overflow-x: scroll;
      position: absolute;
      top: 0px;
      z-index: 1;
@@ -46,6 +48,7 @@ nav {
      justify-content: space-between;
      user-select: none;
      -moz-user-select: none;
+     white-space: nowrap;
 }
 
 #nav {
@@ -250,16 +253,22 @@ main {
 }
 
 @media screen and (max-width: 1262px) {
-
      #right,
      #left {
           height: auto;
           width: 49.5vw;
      }
-
-     #main {
-          height: auto;
-          width: 95vw;
+}
+@media screen and (max-width: 900px) {
+     .titles {
+          width: 50vw;
+          margin-left: 5vw;
+     }
+     #chapter {
+          margin-top: 5vw;
+     }
+     #chapter-button,#page-button,#chapters,#pages {
+          width: 150px;
      }
 }
 
