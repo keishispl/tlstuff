@@ -25,10 +25,11 @@ body {
 
 a {
      color: #cecfd0;
+     transition: filter 0.15s ease;
 }
 
 a:hover {
-     color: white;
+     filter: brightness(1.25);
 }
 
 nav {
@@ -101,6 +102,13 @@ header {
      line-height: 1.5em;
      margin-top: -20px;
      font-weight: normal;
+}
+
+#title>a,
+#title>a:visited,
+#title>a:active {
+     color: purple;
+     text-decoration: none;
 }
 
 main {
@@ -306,6 +314,7 @@ a.key>.fa-arrow-left {
      box-shadow: rgba(50, 50, 50) 5px 5px;
      background-color: rgb(0, 0, 100);
 }
+
 a.key>.fa-arrow-right {
      border-radius: 5px;
      padding: 10px;
@@ -344,6 +353,7 @@ p.key {
      margin-left: 30px;
      margin-right: 25px;
 }
+
 .seperator:hover {
      color: #cecfd0;
 }

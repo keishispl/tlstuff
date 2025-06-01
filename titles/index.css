@@ -25,10 +25,11 @@ body {
 
 a {
      color: #cecfd0;
+     transition: filter 0.15s ease;
 }
 
 a:hover {
-     color: white;
+     filter: brightness(1.25);
 }
 
 nav {
