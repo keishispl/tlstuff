@@ -71,7 +71,7 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
 
      // Create and display links for the manga
      document.getElementById("links").innerHTML = Object.entries(manga.links)
-          .map(e => `<a href="${e[1]}" target="_blank">${e[0]}</a>`)
+          .map(e => `<a href="${e[1]}" class="link" target="_blank">${e[0]}</a>`)
           .join("<br>");
 
      /**
@@ -82,6 +82,7 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
           const chapter = jsonFromFile(`title/${urlParams.get('manga')}/${manga.chapters[i]}/data`);
 
           var tr = document.createElement("tr");
+          tr.className = "chapterTR";
           var td = document.createElement("td");
           td.scope = "row";
           td.className = "chapter-title";
@@ -91,13 +92,18 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
            * @type {string}
            */
           var alt = "";
+          var pre = "";
           if (chapter.alt) {
                if (chapter.alt.length > 0) {
                     alt = " - " + chapter.alt;
+               } else {
+                    pre = "Chapter ";
                }
+          } else {
+               pre = "Chapter ";
           }
           a.setAttribute("title", "Chapter " + manga.chapters[i] + alt);
-          a.textContent = manga.chapters[i] + alt;
+          a.textContent = pre + manga.chapters[i] + alt;
           a.href = "../read/?manga=" + urlParams.get('manga') + "&ch=" + manga.chapters[i];
           td.appendChild(a);
           tr.appendChild(td);
@@ -122,13 +128,20 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
           td.scope = "row";
           td.className = "chapter-mangadex";
           var a = document.createElement("a");
-          a.setAttribute("title", "Link to MangaDex");
-          if (chapter.chapter !== "") {
-               a.innerHTML = `<span class="badge">MD</span>`;
-               a.href = chapter.chapter;
-               a.target = "_blank";
+          if (chapter.chapter === "") {
+               a.innerHTML = `<span class="badge">N/A</span>`;
+               a.setAttribute("title", "External link not available");
           } else {
-               a.innerHTML = `<span class="badge"><s>MD</s></span>`;
+               if (chapter.chapter.includes("mangadex.org")) {
+                    a.innerHTML = `<span class="badge">MD</span>`;
+                    a.setAttribute("title", "Link to MangaDex");
+                    a.href = chapter.chapter;
+                    a.target = "_blank";
+               } else {
+                    a.innerHTML = `<span class="badge">LINK</span>`;
+                    a.href = chapter.chapter;
+                    a.target = "_blank";
+               }
           }
           td.appendChild(a);
           tr.appendChild(td);

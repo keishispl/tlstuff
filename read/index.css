@@ -1,11 +1,11 @@
 ::-moz-selection {
      color: white;
-     background: rgba(42, 0, 168, 0.22);
+     background-color: rgba(59, 23, 69, 0.4);
 }
 
 ::selection {
      color: white;
-     background: rgba(42, 0, 168, 0.22);
+     background-color: rgba(59, 23, 69, 0.4);
 }
 
 body {
@@ -357,6 +357,7 @@ a.button {
      overflow: hidden;
      margin-bottom: 5px;
      cursor: pointer;
+     box-shadow: rgba(0, 0, 0, 0.5) 1px 2px 4px;
 }
 
 .progresstext {

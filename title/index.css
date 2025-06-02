@@ -1,11 +1,11 @@
 ::-moz-selection {
      color: white;
-     background: rgba(42, 0, 168, 0.22);
+     background-color: rgba(59, 23, 69, 0.4);
 }
 
 ::selection {
      color: white;
-     background: rgba(42, 0, 168, 0.22);
+     background-color: rgba(59, 23, 69, 0.4);
 }
 
 body {
@@ -32,6 +32,42 @@ a {
 
 a:hover {
      filter: brightness(1.25);
+}
+
+.chapterTR {
+     transition: background-color 0.15s ease, box-shadow 0.15s ease, text-shadow 0.15s ease;
+}
+
+.chapterTR:hover {
+     background-color: rgba(30, 12, 35, 0.5);
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+#links {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.link {
+     user-select: none;
+     -moz-user-select: none;
+     border-radius: 5px;
+     padding: 7.5px 25px 7.5px 25px;
+     margin-top: 5px;
+     margin-bottom: -15px;
+     background-color: rgba(14, 14, 14, 0.25);
+     text-decoration: none;
+	width: fit-content;
+     transition: transform 0.1s linear, background-color 0.15s ease, box-shadow 0.15s ease, text-shadow 0.15s ease;
+}
+
+.link:hover {
+     transform: translateY(-5px);
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     background-color: rgba(30, 12, 35, 0.5);
 }
 
 .error {
@@ -104,6 +140,8 @@ header {
      display: flex;
      position: fixed;
      width: 100vw;
+     box-shadow: 0px 2px 11px 9px rgba(0, 0, 0, 0.3);
+     z-index: 5;
 }
 
 main {
@@ -119,6 +157,8 @@ main {
      display: flex;
      flex-direction: column;
      align-items: center;
+     box-shadow: 5px 2px 18px 0px rgba(0, 0, 0, 0.3);
+     margin-right: 10px;
 }
 
 .right {
@@ -132,14 +172,18 @@ main {
 }
 
 table#chapters {
-     width: 50vw;
+     width: 60vw;
+     border-radius: 5px;
+     background-color: rgb(30, 30, 30);
+     box-shadow: 0px 0px 18px 5px rgba(0, 0, 0, 0.3);
+     margin: 25px;
 }
 
 .rightDiv {
      overflow-y: scroll;
      display: block;
      height: calc(100vh - 25vw - 75px - 10px - 10px);
-     margin-top: 10px;
+     margin-top: 1vw;
 }
 
 .table-header {
@@ -220,7 +264,20 @@ table#chapters {
      font-weight: normal;
 }
 
+@media screen and (max-width: 550px) {
+     #title {
+          margin-top: 0px;
+          font-size: 16.5px;
+     }
+
+     #aliases {
+          margin-top: -7.5px;
+          font-size: 8.25px;
+     }
+}
+
 .sideDiv {
+     margin-top: 10px;
      width: 75%;
 }
 
@@ -299,18 +356,20 @@ span.badge {
 }
 
 #chapterTitleSearch {
-     transform: translateY(-2.5px);
-     margin-left: 50px;
+     transform: translateY(-1.75px);
+     margin-left: 35px;
      background-color: rgb(20, 20, 20);
      color: #cecfd0;
      border: transparent;
      border-radius: 5px;
      padding: 5px;
      width: 17.5vw;
-     padding-left: 5px;
+     padding-left: 7.5px;
+     transition: box-shadow 0.15s ease;
 }
 
-#chapterTitleSearch:focus {
+#chapterTitleSearch:hover,#chapterTitleSearch:focus {
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
      outline: none;
 }
 
