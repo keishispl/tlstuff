@@ -1,37 +1,5 @@
-::-moz-selection {
-     color: white;
-     background-color: rgba(59, 23, 69, 0.4);
-}
-
-::selection {
-     color: white;
-     background-color: rgba(59, 23, 69, 0.4);
-}
-
 body {
-     overscroll-behavior: none;
-     background-size: cover;
-     background-position: center right;
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     color: #cecfd0;
-     font-weight: normal;
-     margin: 0;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
-     background-color: rgb(40, 40, 40);
      overflow-y: hidden;
-     font-family: "Hiragino Kaku Gothic", sans-serif;
-}
-
-a {
-     color: #cecfd0;
-     transition: filter 0.15s ease;
-}
-
-a:hover {
-     filter: brightness(1.25);
 }
 
 .chapterTR {
@@ -96,44 +64,6 @@ a:hover {
 
 #error-img {
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
-}
-
-nav {
-     z-index: 1;
-     height: 75px;
-     overflow: hidden;
-     overflow-x: scroll;
-     position: fixed;
-     top: 0px;
-     z-index: 1;
-     width: 100vw;
-     background-color: rgb(10, 10, 10);
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     user-select: none;
-     -moz-user-select: none;
-}
-
-#nav {
-     display: flex;
-     flex-direction: row;
-     list-style-type: none;
-     align-items: center;
-     box-sizing: border-box;
-     margin-block-start: 1em;
-     margin-block-end: 1em;
-     padding-inline-start: 40px;
-     font-size: 16px;
-     line-height: 1.5;
-}
-
-#nav li {
-     margin-right: 40px;
-}
-
-#nav a {
-     text-decoration: none;
 }
 
 header {
@@ -265,7 +195,7 @@ table#chapters {
      position: relative;
      font-size: 1.5vw;
      line-height: 1.5em;
-     margin-top: 1vw;
+     margin-top: -1.5vw;
      font-weight: normal;
 }
 
@@ -276,7 +206,6 @@ table#chapters {
      }
 
      #aliases {
-          margin-top: -7.5px;
           font-size: 8.25px;
      }
 }
