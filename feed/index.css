@@ -1,0 +1,166 @@
+body {
+     overflow-y: hidden;
+}
+
+header {
+     width: 100%;
+     margin-top: 75px;
+     height: 7.5vw;
+     background-color: rgb(25, 25, 25);
+     display: flex;
+     position: fixed;
+     top: 0;
+     z-index: 1;
+     box-shadow: 0px 2px 11px 9px rgba(0, 0, 0, 0.3);
+}
+
+main {
+     position: relative;
+     margin-top: calc(75px + 7.5vw + 10px + 3.5vw);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+#title {
+     user-select: none;
+     -moz-user-select: none;
+     text-align: left;
+     white-space: initial;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     vertical-align: middle;
+     margin-left: 2.5vw;
+     line-height: 1.25em;
+     overflow-wrap: break-word;
+     font-size: 3vw;
+}
+
+#titles {
+     overflow-y: scroll !important;
+     display: block;
+     max-height: calc(100vh - 75px - 7.5vw - 10px - 3.5vw - 2.5vw);
+}
+
+@media screen and (max-width: 600px) {
+     #nav a {
+          font-size: 2.5vw;
+     }
+
+     nav {
+          height: 12.5vw;
+     }
+
+     header {
+          margin-top: 12.5vw;
+     }
+
+     #nav {
+          padding-inline-start: 5vw;
+     }
+
+     #nav li {
+          margin-right: 5vw;
+     }
+
+     main {
+          margin-top: calc(12.5vw + 7.5vw + 3.5vw);
+     }
+
+     #titles {
+          max-height: calc(100vh - 12.5vw - 7.5vw - 3.5vw - 2.5vw);
+     }
+}
+
+table#chapters {
+     width: 90vw;
+     border-radius: 5px;
+     background-color: rgb(30, 30, 30);
+     box-shadow: 0px 0px 18px 5px rgba(0, 0, 0, 0.3);
+     margin: 0px 25px 25px 25px;
+}
+
+.table-header {
+     position: sticky;
+     top: 0;
+     background-color: rgb(40, 40, 40);
+}
+
+@media screen and (max-width: 1000px) {
+     table#chapters {
+          font-size: 1.5vw;
+     }
+
+     span.badge {
+          font-size: calc(1.5vw-0.25em);
+     }
+
+     #chapterTitleSearch {
+          font-size: 1.5vw;
+     }
+
+}
+
+.table-title {
+     width: 25vw;
+}
+
+#chapters tr {
+     white-space: nowrap;
+     padding: 0 1em;
+     line-height: 3em;
+     font-weight: normal;
+     font-size: 1em;
+}
+
+#chapters th {
+     white-space: nowrap;
+     padding: 0 1em;
+     line-height: 3em;
+     font-weight: normal;
+     font-size: 1em;
+}
+
+#chapters td {
+     padding-right: 5px;
+     border-top: 1px solid #444;
+     box-shadow: none !important;
+     outline: none !important;
+}
+
+#chapters a {
+     text-decoration: none;
+}
+
+.table-title,
+.chapter-title {
+     padding-left: 1vw;
+     text-align: left;
+}
+
+.chapter-date,
+.chapter-mangadex {
+     text-align: center;
+}
+
+span.badge {
+     font-weight: bold;
+     font-size: 0.75em;
+}
+
+#chapterTitleSearch {
+     transform: translateY(-1.75px);
+     margin-left: 35px;
+     background-color: rgb(20, 20, 20);
+     color: #cecfd0;
+     border: transparent;
+     border-radius: 5px;
+     padding: 5px;
+     width: 17.5vw;
+     padding-left: 7.5px;
+     transition: box-shadow 0.15s ease;
+}
+
+#chapterTitleSearch:hover,#chapterTitleSearch:focus {
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     outline: none;
+}

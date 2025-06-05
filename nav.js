@@ -44,5 +44,6 @@ const navDiv = document.getElementById("nav");
 // Add navigation items
 // parseNavItem("Home", "");
 parseNavItem("Titles", "titles");
+parseNavItem("Updates", "feed");
 // parseNavItem("About", "about");
 parseNavItem("Source Code", "https://github.com/keishispl/tlstuff");
