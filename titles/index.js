@@ -62,7 +62,11 @@ window.addEventListener("load", () => {
           // Create the text
           let p = document.createElement("p");
           p.className = "manga";
-          p.textContent = data2.title;
+          var tags = "";
+          if (data2.tags) {
+               data2.tags.forEach(e => tags += `<span class="tag">${e}</span>`);
+          }
+          p.innerHTML = data2.title + tags;
           div.appendChild(p);
 
           // Append the div to the page

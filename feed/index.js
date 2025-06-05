@@ -109,7 +109,11 @@ window.addEventListener("load", () => {
           td.scope = "row";
           td.className = "chapter-title";
           var a = document.createElement("a");
-          a.textContent = chapter.manga;
+          var tags = "";
+          if (chapter.manga.tags) {
+               chapter.manga.tags.forEach(e => tags += `<span class="tag">${e}</span>`);
+          }
+          a.innerHTML = chapter.manga + tags;
           a.href = "../title/?manga=" + chapter.mangaID;
           td.appendChild(a);
           tr.appendChild(td);

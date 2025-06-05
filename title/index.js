@@ -60,7 +60,11 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
      document.getElementById("logo").src = 'https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/' + urlParams.get('manga') + '/cover.jpg';
 
      // Set the manga title
-     document.getElementById("title").textContent = manga.title;
+     var tags = "";
+     if (manga.tags) {
+          manga.tags.forEach(e => tags += `<span class="tag">${e}</span>`);
+     }
+     document.getElementById("title").innerHTML = manga.title + tags;
 
      // Display aliases, each on a new line
      document.getElementById("aliases").innerHTML = manga.aliases.join("<br>");

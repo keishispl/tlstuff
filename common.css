@@ -92,3 +92,16 @@ nav {
           transform: rotate(1turn);
      }
 }
+
+.tag {
+     background-color: #fb2323;
+     border-radius: 5px;
+     padding: 5px;
+     font-size: 10px;
+     color: #fff;
+     vertical-align: middle;
+     user-select: none;
+     -moz-user-select: none;
+     font-weight: bold;
+     margin-left: 1em;
+}
