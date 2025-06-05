@@ -58,6 +58,8 @@ function arrayThird(item) {
      return array;
 }
 
+var imagesLoaded = 0;
+
 /**
  * Sets the images for the chapter viewer.
  * @param {Array<Array<*>|*>} item The array of pages for the chapter
@@ -70,15 +72,40 @@ function setImages(item, urlParams) {
      left.style.display = "none";
      right.src = "";
      left.src = "";
+     imagesLoaded = 0;
 
-     right.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${urlParams.get('manga')}/${urlParams.get('ch')}/${urlParams.get('pg')}.png`;
-     right.style.display = "inline-block";
+     if (document.querySelectorAll(".loader").length == 0) {
+          var loader = document.createElement("div");
+          loader.classList.add("loader");
+          document.getElementById("main").appendChild(loader);
+     }
 
      if (arraySecond(item).includes(`${parseInt(urlParams.get('pg')) + 1}`)) {
           left.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${urlParams.get('manga')}/${urlParams.get('ch')}/${parseInt(urlParams.get('pg')) + 1}.png`;
           left.style.display = "inline-block";
+     } else {
+          imagesLoaded++;
+     }
+
+     right.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${urlParams.get('manga')}/${urlParams.get('ch')}/${urlParams.get('pg')}.png`;
+     right.style.display = "inline-block";
+}
+
+function checkLoader() {
+     if (imagesLoaded == 2) {
+          document.querySelectorAll(".loader").forEach(e => e.remove());
      }
 }
+
+document.getElementById("right").addEventListener("load", () => {
+     imagesLoaded++;
+     checkLoader();
+});
+
+document.getElementById("left").addEventListener("load", () => {
+     imagesLoaded++;
+     checkLoader();
+});
 
 /**
  * Sets the titles for the chapter viewer.

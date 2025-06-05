@@ -27,43 +27,48 @@ function getMangaData(manga) {
      return jsonFromFile(`title/${manga}/data`);
 }
 
-// Get the list of available manga
-let data = getMangaList();
+window.addEventListener("load", () => {
+     document.getElementById("titles").style.display = "flex";
+     document.querySelectorAll(".loader").forEach(e => e.remove());
 
-// Create a div for each manga
-data.forEach(e => {
-     // Get the data for the manga
-     let data2 = getMangaData(e);
+     // Get the list of available manga
+     let data = getMangaList();
 
-     // Create the div
-     let div = document.createElement("div");
-     div.className = "object";
+     // Create a div for each manga
+     data.forEach(e => {
+          // Get the data for the manga
+          let data2 = getMangaData(e);
 
-     // Create the link to the manga page
-     let a = document.createElement("a");
-     a.href = `../title/?manga=${e}`;
-     a.className = "link";
-     a.textContent = data2.title;
-     div.appendChild(a);
+          // Create the div
+          let div = document.createElement("div");
+          div.className = "object";
 
-     // Create the image
-     let img = document.createElement("img");
-     img.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${e}/cover.jpg`;
-     img.draggable = false;
-     img.height = "273";
-     img.width = "192";
-     img.className = "cover";
-     div.appendChild(img);
+          // Create the link to the manga page
+          let a = document.createElement("a");
+          a.href = `../title/?manga=${e}`;
+          a.className = "link";
+          a.textContent = data2.title;
+          div.appendChild(a);
 
-     // Create the text
-     let p = document.createElement("p");
-     p.className = "manga";
-     p.textContent = data2.title;
-     div.appendChild(p);
+          // Create the image
+          let img = document.createElement("img");
+          img.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${e}/cover.jpg`;
+          img.draggable = false;
+          img.height = "273";
+          img.width = "192";
+          img.className = "cover";
+          div.appendChild(img);
 
-     // Append the div to the page
-     document.getElementById("titles").appendChild(div);
-})
+          // Create the text
+          let p = document.createElement("p");
+          p.className = "manga";
+          p.textContent = data2.title;
+          div.appendChild(p);
+
+          // Append the div to the page
+          document.getElementById("titles").appendChild(div);
+     });
+});
 
 // Add a search function to the page
 let titles = document.getElementById("titles");

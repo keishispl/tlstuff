@@ -74,79 +74,84 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
           .map(e => `<a href="${e[1]}" class="link" target="_blank">${e[0]}</a>`)
           .join("<br>");
 
-     /**
-      * Generates and appends a table row for each chapter of the manga in the reverse order of release.
-      * The table row contains the chapter title, release date, and a link to MangaDex.
-      */
-     for (let i = manga.chapters.length - 1; i >= 0; i--) {
-          const chapter = jsonFromFile(`title/${urlParams.get('manga')}/${manga.chapters[i]}/data`);
+     window.addEventListener("load", () => {
+          document.querySelector(".rightDiv").style.display = "block";
+          document.querySelectorAll(".loader").forEach(e => e.remove());
 
-          var tr = document.createElement("tr");
-          tr.className = "chapterTR";
-          var td = document.createElement("td");
-          td.scope = "row";
-          td.className = "chapter-title";
-          var a = document.createElement("a");
           /**
-           * The alternative chapter title, if it exists.
-           * @type {string}
+           * Generates and appends a table row for each chapter of the manga in the reverse order of release.
+           * The table row contains the chapter title, release date, and a link to MangaDex.
            */
-          var alt = "";
-          var pre = "";
-          if (chapter.alt) {
-               if (chapter.alt.length > 0) {
-                    alt = " - " + chapter.alt;
+          for (let i = manga.chapters.length - 1; i >= 0; i--) {
+               const chapter = jsonFromFile(`title/${urlParams.get('manga')}/${manga.chapters[i]}/data`);
+
+               var tr = document.createElement("tr");
+               tr.className = "chapterTR";
+               var td = document.createElement("td");
+               td.scope = "row";
+               td.className = "chapter-title";
+               var a = document.createElement("a");
+               /**
+                * The alternative chapter title, if it exists.
+                * @type {string}
+                */
+               var alt = "";
+               var pre = "";
+               if (chapter.alt) {
+                    if (chapter.alt.length > 0) {
+                         alt = " - " + chapter.alt;
+                    } else {
+                         pre = "Chapter ";
+                    }
                } else {
                     pre = "Chapter ";
                }
-          } else {
-               pre = "Chapter ";
-          }
-          a.setAttribute("title", "Chapter " + manga.chapters[i] + alt);
-          a.textContent = pre + manga.chapters[i] + alt;
-          a.href = "../read/?manga=" + urlParams.get('manga') + "&ch=" + manga.chapters[i];
-          td.appendChild(a);
-          tr.appendChild(td);
-          var td = document.createElement("td");
-          td.scope = "row";
-          td.className = "chapter-date";
-          var a = document.createElement("a");
-          /**
-           * The time elapsed since the chapter was released.
-           * @type {string}
-           */
-          a.textContent = timeSince(new Date(`${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
-          /**
-           * The release date of the chapter in the format "YYYY-MM-DD HH:MM:SS".
-           * @type {string}
-           */
-          [1, 2, 3, 4, 5].forEach(e => chapter.date[e] = `${chapter.date[e]}`.length < 2 ? "0" + chapter.date[e] : chapter.date[e]);
-          a.setAttribute("title", `${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
-          td.appendChild(a);
-          tr.appendChild(td);
-          var td = document.createElement("td");
-          td.scope = "row";
-          td.className = "chapter-mangadex";
-          var a = document.createElement("a");
-          if (chapter.chapter === "") {
-               a.innerHTML = `<span class="badge">N/A</span>`;
-               a.setAttribute("title", "External link not available");
-          } else {
-               if (chapter.chapter.includes("mangadex.org")) {
-                    a.innerHTML = `<span class="badge">MD</span>`;
-                    a.setAttribute("title", "Link to MangaDex");
-                    a.href = chapter.chapter;
-                    a.target = "_blank";
+               a.setAttribute("title", "Chapter " + manga.chapters[i] + alt);
+               a.textContent = pre + manga.chapters[i] + alt;
+               a.href = "../read/?manga=" + urlParams.get('manga') + "&ch=" + manga.chapters[i];
+               td.appendChild(a);
+               tr.appendChild(td);
+               var td = document.createElement("td");
+               td.scope = "row";
+               td.className = "chapter-date";
+               var a = document.createElement("a");
+               /**
+                * The time elapsed since the chapter was released.
+                * @type {string}
+                */
+               a.textContent = timeSince(new Date(`${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
+               /**
+                * The release date of the chapter in the format "YYYY-MM-DD HH:MM:SS".
+                * @type {string}
+                */
+               [1, 2, 3, 4, 5].forEach(e => chapter.date[e] = `${chapter.date[e]}`.length < 2 ? "0" + chapter.date[e] : chapter.date[e]);
+               a.setAttribute("title", `${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
+               td.appendChild(a);
+               tr.appendChild(td);
+               var td = document.createElement("td");
+               td.scope = "row";
+               td.className = "chapter-mangadex";
+               var a = document.createElement("a");
+               if (chapter.chapter === "") {
+                    a.innerHTML = `<span class="badge">N/A</span>`;
+                    a.setAttribute("title", "External link not available");
                } else {
-                    a.innerHTML = `<span class="badge">LINK</span>`;
-                    a.href = chapter.chapter;
-                    a.target = "_blank";
+                    if (chapter.chapter.includes("mangadex.org")) {
+                         a.innerHTML = `<span class="badge">MD</span>`;
+                         a.setAttribute("title", "Link to MangaDex");
+                         a.href = chapter.chapter;
+                         a.target = "_blank";
+                    } else {
+                         a.innerHTML = `<span class="badge">LINK</span>`;
+                         a.href = chapter.chapter;
+                         a.target = "_blank";
+                    }
                }
+               td.appendChild(a);
+               tr.appendChild(td);
+               document.getElementById("chapterTable").appendChild(tr);
           }
-          td.appendChild(a);
-          tr.appendChild(td);
-          document.getElementById("chapterTable").appendChild(tr);
-     }
+     });
      /**
       * Selects the table that contains the list of chapters.
       * @type {HTMLTableElement}
