@@ -187,6 +187,10 @@ main {
           height: auto;
           width: 49.5vw;
      }
+     #wide {
+          width: 99vw;
+          height: auto;
+     }
 }
 @media screen and (max-width: 900px) {
      .titles {

@@ -99,6 +99,11 @@ function checkLoader() {
 
 document.getElementById("right").addEventListener("load", () => {
      imagesLoaded++;
+     if (document.getElementById("right").width > document.getElementById("right").height) {
+          document.getElementById("right").classList.add("wide");
+     } else {
+          document.getElementById("right").classList.remove("wide");
+     }
      checkLoader();
 });
 
