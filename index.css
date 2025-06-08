@@ -78,17 +78,24 @@ main {
 }
 
 .section>#latest-updates>.updates-div>div {
-     .chapter-cover {
+
+     .chapter-cover-link {
           float: left;
+          user-select: none;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+     }
+     .chapter-cover-link:hover {
+          filter: brightness(1);
+     }
+
+     .chapter-cover {
           width: auto;
           height: 100px;
           margin: 0;
           margin-right: 10px;
           border: transparent;
           border-radius: 5px;
-          user-select: none;
-          -moz-user-select: none;
-          -webkit-user-select: none;
           pointer-events: none;
           -webkit-touch-callout: none;
      }

@@ -129,6 +129,12 @@ window.addEventListener("load", () => {
                     var div = document.createElement("div");
                     updates.appendChild(div);
 
+                    var a = document.createElement("a");
+                    a.href = `title/?manga=${allMangas[n].mangaID}`;
+                    a.className = "chapter-cover-link";
+                    a.draggable = false;
+                    div.appendChild(a);
+
                     // Create the image
                     let img = document.createElement("img");
                     img.src = `https://raw.githubusercontent.com/keishispl/tlstuff-resources/refs/heads/main/title/${allMangas[n].mangaID}/cover.jpg`;
@@ -136,7 +142,7 @@ window.addEventListener("load", () => {
                     img.height = "273";
                     img.width = "192";
                     img.className = "chapter-cover";
-                    div.appendChild(img);
+                    a.appendChild(img);
 
                     var right = document.createElement("div");
                     div.appendChild(right);
