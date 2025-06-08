@@ -19,6 +19,7 @@ header>h1 {
      margin: 1em;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 main {
@@ -87,6 +88,7 @@ main {
           border-radius: 5px;
           user-select: none;
           -moz-user-select: none;
+          -webkit-user-select: none;
           pointer-events: none;
           -webkit-touch-callout: none;
      }
@@ -170,6 +172,7 @@ a.button {
      transition: transform 0.1s linear, background-color 0.15s ease, box-shadow 0.15s ease, text-shadow 0.15s ease;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 .button:link,

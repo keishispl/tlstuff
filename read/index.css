@@ -52,6 +52,7 @@ header {
      position: absolute;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 #chapter-button {
@@ -177,6 +178,7 @@ main {
      width: auto;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
      pointer-events: none;
      -webkit-touch-callout: none;
 }
@@ -227,6 +229,7 @@ main {
      padding-bottom: 10px;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 #error-img {
@@ -311,6 +314,7 @@ a.button {
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 .hover {
@@ -366,6 +370,7 @@ a.button {
      z-index: 1002;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 #access-close {

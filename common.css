@@ -48,6 +48,7 @@ nav {
      justify-content: space-between;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
      white-space: nowrap;
 }
 
@@ -107,6 +108,7 @@ nav {
      vertical-align: middle;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
      font-weight: bold;
      margin-left: 1em;
 }

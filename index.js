@@ -89,7 +89,7 @@ window.addEventListener("load", () => {
           })
 
           allChapters.sort(function (a, b) {
-               return new Date(`${b.date[0]}-${b.date[1]}-${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}-${a.date[1]}-${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
+               return new Date(`${b.date[0]}/${b.date[1]}/${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}/${a.date[1]}/${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
           })
 
           allMangas.push(allChapters[0]);
@@ -116,7 +116,7 @@ window.addEventListener("load", () => {
 
 
      allMangas.sort(function (a, b) {
-          return new Date(`${b.date[0]}-${b.date[1]}-${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}-${a.date[1]}-${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
+          return new Date(`${b.date[0]}/${b.date[1]}/${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}/${a.date[1]}/${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
      })
 
      var status = false;
@@ -178,9 +178,9 @@ window.addEventListener("load", () => {
                     right.appendChild(p);
 
                     var a = document.createElement("a");
-                    a.textContent = timeSince(new Date(`${allMangas[n].date[0]}-${allMangas[n].date[1]}-${allMangas[n].date[2]} ${allMangas[n].date[3]}:${allMangas[n].date[4]}:${allMangas[n].date[5]}`)) + " ago";
+                    a.textContent = timeSince(new Date(`${allMangas[n].date[0]}/${allMangas[n].date[1]}/${allMangas[n].date[2]} ${allMangas[n].date[3]}:${allMangas[n].date[4]}:${allMangas[n].date[5]}`)) + " ago";
                     [1, 2, 3, 4, 5].forEach(e => allMangas[n].date[e] = `${allMangas[n].date[e]}`.length < 2 ? "0" + allMangas[n].date[e] : allMangas[n].date[e]);
-                    a.setAttribute("title", `${allMangas[n].date[0]}-${allMangas[n].date[1]}-${allMangas[n].date[2]} ${allMangas[n].date[3]}:${allMangas[n].date[4]}:${allMangas[n].date[5]}`);
+                    a.setAttribute("title", `${allMangas[n].date[0]}/${allMangas[n].date[1]}/${allMangas[n].date[2]} ${allMangas[n].date[3]}:${allMangas[n].date[4]}:${allMangas[n].date[5]}`);
                     p.appendChild(a);
                } else {
                     status = true;

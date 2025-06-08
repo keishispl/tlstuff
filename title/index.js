@@ -123,13 +123,13 @@ if (jsonFromFile('all').includes(urlParams.get('manga'))) {
                 * The time elapsed since the chapter was released.
                 * @type {string}
                 */
-               a.textContent = timeSince(new Date(`${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
+               a.textContent = timeSince(new Date(`${chapter.date[0]}/${chapter.date[1]}/${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
                /**
                 * The release date of the chapter in the format "YYYY-MM-DD HH:MM:SS".
                 * @type {string}
                 */
                [1, 2, 3, 4, 5].forEach(e => chapter.date[e] = `${chapter.date[e]}`.length < 2 ? "0" + chapter.date[e] : chapter.date[e]);
-               a.setAttribute("title", `${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
+               a.setAttribute("title", `${chapter.date[0]}/${chapter.date[1]}/${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
                td.appendChild(a);
                tr.appendChild(td);
                var td = document.createElement("td");

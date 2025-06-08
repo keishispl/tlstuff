@@ -21,6 +21,7 @@ body {
 .link {
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
      border-radius: 5px;
      padding: 7.5px 25px 7.5px 25px;
      margin-top: 5px;
@@ -60,6 +61,7 @@ body {
      padding-bottom: 10px;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
 }
 
 #error-img {
@@ -169,6 +171,7 @@ table#chapters {
      border: 1px solid #cecfd0;
      user-select: none;
      -moz-user-select: none;
+     -webkit-user-select: none;
      pointer-events: none;
      -webkit-touch-callout: none;
 }

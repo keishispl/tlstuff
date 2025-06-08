@@ -68,7 +68,7 @@ window.addEventListener("load", () => {
      })
 
      allChapters.sort(function (a, b) {
-          return new Date(`${b.date[0]}-${b.date[1]}-${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}-${a.date[1]}-${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
+          return new Date(`${b.date[0]}/${b.date[1]}/${b.date[2]} ${b.date[3]}:${b.date[4]}:${b.date[5]}`) - new Date(`${a.date[0]}/${a.date[1]}/${a.date[2]} ${a.date[3]}:${a.date[4]}:${a.date[5]}`);
      })
 
      /**
@@ -126,13 +126,13 @@ window.addEventListener("load", () => {
            * The time elapsed since the chapter was released.
            * @type {string}
            */
-          a.textContent = timeSince(new Date(`${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
+          a.textContent = timeSince(new Date(`${chapter.date[0]}/${chapter.date[1]}/${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`)) + " ago";
           /**
            * The release date of the chapter in the format "YYYY-MM-DD HH:MM:SS".
            * @type {string}
            */
           [1, 2, 3, 4, 5].forEach(e => chapter.date[e] = `${chapter.date[e]}`.length < 2 ? "0" + chapter.date[e] : chapter.date[e]);
-          a.setAttribute("title", `${chapter.date[0]}-${chapter.date[1]}-${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
+          a.setAttribute("title", `${chapter.date[0]}/${chapter.date[1]}/${chapter.date[2]} ${chapter.date[3]}:${chapter.date[4]}:${chapter.date[5]}`);
           td.appendChild(a);
           tr.appendChild(td);
 
