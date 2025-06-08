@@ -5,7 +5,6 @@
 header {
      width: 100%;
      margin-top: 75px;
-     height: 7.5vw;
      background-color: rgb(25, 25, 25);
      display: flex;
      position: fixed;
@@ -16,7 +15,7 @@ header {
 
 main {
      position: relative;
-     margin-top: calc(75px + 7.5vw + 10px);
+     margin-top: calc(75px + 130px + 10px);
 }
 
 #title {
@@ -27,10 +26,10 @@ main {
      white-space: initial;
      text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
      vertical-align: middle;
-     margin-left: 2.5vw;
+     margin-left: 1em;
      line-height: 1.25em;
      overflow-wrap: break-word;
-     font-size: 3vw;
+     font-size: 50px;
 }
 
 #search {
@@ -124,32 +123,6 @@ main {
      color: transparent;
 }
 
-@media screen and (max-width: 600px) {
-     #nav a {
-          font-size: 2.5vw;
-     }
-
-     nav {
-          height: 12.5vw;
-     }
-
-     header {
-          margin-top: 12.5vw;
-     }
-
-     #nav {
-          padding-inline-start: 5vw;
-     }
-
-     #nav li {
-          margin-right: 5vw;
-     }
-
-     main {
-          margin-top: calc(12.5vw + 7.5vw);
-     }
-}
-
 @media screen and (max-width: 1200px) {
      .manga {
           font-size: 1.3vw;
@@ -157,10 +130,6 @@ main {
 
      #search {
           font-size: 10px;
-     }
-
-     #titles {
-          padding-top: calc(27px + 2vw);
      }
 }
 

@@ -9,7 +9,6 @@ body {
 header {
      width: 100%;
      margin-top: 75px;
-     height: 7.5vw;
      background-color: rgb(25, 25, 25);
      display: flex;
      position: fixed;
@@ -20,10 +19,16 @@ header {
 
 main {
      position: relative;
-     margin-top: calc(75px + 7.5vw + 10px + 3.5vw);
+     margin-top: calc(75px + 130px + 10px + 3.5vw);
      display: flex;
      flex-direction: column;
      align-items: center;
+}
+
+@media screen and (max-width: 462px) {
+     main {
+          margin-top: calc(75px + 200px + 10px + 3.5vw);
+     }
 }
 
 #title {
@@ -34,46 +39,16 @@ main {
      white-space: initial;
      text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
      vertical-align: middle;
-     margin-left: 2.5vw;
+     margin-left: 1em;
      line-height: 1.25em;
      overflow-wrap: break-word;
-     font-size: 3vw;
+     font-size: 50px;
 }
 
 #titles {
      overflow-y: scroll !important;
      display: block;
-     max-height: calc(100vh - 75px - 7.5vw - 10px - 3.5vw - 2.5vw);
-}
-
-@media screen and (max-width: 600px) {
-     #nav a {
-          font-size: 2.5vw;
-     }
-
-     nav {
-          height: 12.5vw;
-     }
-
-     header {
-          margin-top: 12.5vw;
-     }
-
-     #nav {
-          padding-inline-start: 5vw;
-     }
-
-     #nav li {
-          margin-right: 5vw;
-     }
-
-     main {
-          margin-top: calc(12.5vw + 7.5vw + 3.5vw);
-     }
-
-     #titles {
-          max-height: calc(100vh - 12.5vw - 7.5vw - 3.5vw - 2.5vw);
-     }
+     max-height: calc(100vh - 75px - 130px - 10px - 3.5vw - 2.5vw);
 }
 
 .chapterTR {
