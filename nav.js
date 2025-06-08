@@ -34,16 +34,21 @@ function parseNavItem(name, link) {
     }
 
     // Construct the full URL and set it as the href of the link
-    var split = window.location.href.split('/');
-    a.href = split[0] + "//" + split[2] + ppath + link;
+    if (window.location.pathname !== ppath + link) {
+        var split = window.location.href.split('/');
+        a.href = split[0] + "//" + split[2] + ppath + link;
+    } else {
+        a.classList.add("current");
+    }
 }
 
 // Get the navigation div element
 const navDiv = document.getElementById("nav");
 
 // Add navigation items
-// parseNavItem("Home", "");
-parseNavItem("Titles", "titles");
-parseNavItem("Updates", "feed");
-// parseNavItem("About", "about");
+parseNavItem("Home", "");
+parseNavItem("Titles", "titles/");
+parseNavItem("Updates", "feed/");
+parseNavItem("Random Manga", "random/");
+// parseNavItem("About", "about/");
 parseNavItem("Source Code", "https://github.com/keishispl/tlstuff");

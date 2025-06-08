@@ -1,0 +1,187 @@
+.loader {
+     position: relative;
+}
+
+header {
+     width: 100%;
+     margin-top: 75px;
+     background-color: rgb(25, 25, 25);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     top: 0;
+     z-index: 1;
+     box-shadow: 0px 2px 11px 9px rgba(0, 0, 0, 0.3);
+}
+
+header>h1 {
+     font-size: 50px;
+     margin: 1em;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+main {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     width: 90vw;
+     margin-left: 5vw;
+     margin-right: 5vw;
+     margin-bottom: 50px;
+}
+
+.section {
+     padding: 25px;
+     margin-top: 50px;
+     text-align: left;
+}
+
+.section>h2 {
+     font-size: 30px;
+     margin-bottom: 25px;
+}
+
+.section>#latest-updates {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+}
+
+.section>#latest-updates>.updates-div {
+     height: 600px;
+     display: flex;
+     width: 100%;
+     flex-direction: column;
+     flex-basis: 0;
+     flex-grow: 1;
+     background-color: rgb(30, 30, 30);
+     border-radius: 5px;
+     margin: 20px;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+.section>#latest-updates>.updates-div>div {
+     padding: 10px;
+     display: inline-block;
+     width: calc((100vw / 3) - (10vw / 3) - 80px + 2.5px);
+     transition: background-color 0.15s ease, box-shadow 0.15s ease, text-shadow 0.15s ease;
+     height: 100px;
+}
+
+.section>#latest-updates>.updates-div>div:hover {
+     background-color: rgba(30, 12, 35, 0.5);
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+}
+
+.section>#latest-updates>.updates-div>div {
+     .chapter-cover {
+          float: left;
+          width: auto;
+          height: 100px;
+          margin: 0;
+          margin-right: 10px;
+          border: transparent;
+          border-radius: 5px;
+          user-select: none;
+          -moz-user-select: none;
+          pointer-events: none;
+          -webkit-touch-callout: none;
+     }
+
+     div {
+          float: left;
+          width: calc(100% - (100px / 19 * 13) - 15px);
+     }
+
+     .chapter-manga {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: bold;
+          font-size: 18px;
+          display: inline-block;
+          max-width: 100%;
+          margin: 0;
+          margin-top: 5px;
+
+          a {
+               text-decoration: none;
+          }
+     }
+
+     .chapter-chapter {
+          margin: 0;
+          margin-top: 5px;
+          max-width: 100%;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          a {
+               text-decoration: none;
+          }
+     }
+
+     .chapter-date {
+          text-align: right;
+          margin: 0;
+          margin-top: 15px;
+          max-width: 100%;
+     }
+}
+
+@media screen and (max-width: 1400px) {
+     .section>#latest-updates>.updates-div>div {
+          width: calc(50vw - 5vw - 80px - 5px);
+     }
+}
+
+@media screen and (max-width: 1000px) {
+     .section>#latest-updates>.updates-div>div {
+          width: calc(100vw - 10vw - 80px - 10px);
+     }
+}
+
+a.button {
+     backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+     -ms-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
+     background-color: transparent;
+     border-radius: 5px;
+     box-sizing: border-box;
+     color: rgb(190, 190, 190);
+     cursor: pointer;
+     display: inline-block;
+     font-size: 20px;
+     height: 48px;
+     line-height: 45px;
+     margin: 20px 2.5% 20px 2.5%;
+     width: 95%;
+     text-align: center;
+     text-decoration: none;
+     white-space: nowrap;
+     background-color: rgba(14, 14, 14, 0.5);
+     transition: transform 0.1s linear, background-color 0.15s ease, box-shadow 0.15s ease, text-shadow 0.15s ease;
+     user-select: none;
+     -moz-user-select: none;
+}
+
+.button:link,
+.button:visited,
+.button:active {
+     color: rgb(190, 190, 190);
+}
+
+.button:hover {
+     color: rgb(190, 190, 190);
+     transform: translateY(-5px);
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     text-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     background-color: rgba(30, 12, 35, 0.5);
+}

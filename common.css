@@ -72,19 +72,24 @@ nav {
      text-decoration: none;
 }
 
+#nav a.current {
+     color: #996cd4;
+}
+
 .loader {
      position: absolute;
-     top: 50%;
-     left: 50%;
-     margin: -37.5px 0 0 -37.5px;
-     width: 75px;
-     aspect-ratio: 1;
-     border-radius: 50%;
+     top: 50% !important;
+     left: 50% !important;
+     margin: -37.5px 0 0 -37.5px !important;
+     width: 75px !important;
+     height: 75px !important;
+     aspect-ratio: 1 !important;
+     border-radius: 50% !important;
      background:
           radial-gradient(farthest-side, #5810b6 94%, #0000) top/10px 10px no-repeat,
-          conic-gradient(#0000 30%, #5810b6);
-     mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
-     animation: l13 1s infinite linear;
+          conic-gradient(#0000 30%, #5810b6) !important;
+     mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0) !important;
+     animation: l13 1s infinite linear !important;
 }
 
 @keyframes l13 {
