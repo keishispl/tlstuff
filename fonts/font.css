@@ -1,53 +1,53 @@
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W0.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W0.otf") format("otf");
      font-weight: 100;
 }
 
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W1.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W1.otf") format("otf");
      font-weight: 200;
 }
 
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W2.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W2.otf") format("otf");
      font-weight: 300;
 }
 
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W3.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W3.otf") format("otf");
      font-weight: 400;
 }
 
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W4.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W4.otf") format("otf");
      font-weight: 500;
 }
 
 @font-face {
-     font-family: "Hiragino Kaku Gothic";
-     src: url("W5.ttc") format("ttc");
+     font-family: "Hiragino Kaku Gothic ProN";
+     src: url("W5.otf") format("otf");
      font-weight: 600;
 }
 
 @font-face {
      font-family: "Hiragino Kaku Gothic";
-     src: url("W6.ttc") format("ttc");
+     src: url("W6.otf") format("otf");
      font-weight: 700;
 }
 
 @font-face {
      font-family: "Hiragino Kaku Gothic";
-     src: url("W7.ttc") format("ttc");
+     src: url("W7.otf") format("otf");
      font-weight: 800;
 }
 
 @font-face {
      font-family: "Hiragino Kaku Gothic";
-     src: url("W8.ttc") format("ttc");
+     src: url("W8.otf") format("otf");
      font-weight: 900;
 }
