@@ -17,7 +17,7 @@ function jsonFromFile(file) {
  *                   (years, months, days, hours, minutes, or seconds).
  */
 function timeSince(date) {
-     var seconds = Math.floor((new Date(Date.now()) - date) / 1000);
+     var seconds = Math.floor((new Date() - date) / 1000);
 
      var interval = seconds / 31536000;
 
