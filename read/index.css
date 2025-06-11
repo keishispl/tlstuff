@@ -1,5 +1,6 @@
 nav {
      position: absolute;
+     z-index: 10000;
 }
 
 header {
@@ -10,7 +11,7 @@ header {
      display: flex;
      position: absolute;
      top: 0;
-     z-index: 1;
+     z-index: 10000;
 }
 
 .titles {
@@ -162,16 +163,6 @@ header {
      height: 100%;
 }
 
-main {
-     position: relative;
-     margin-top: 225px;
-     height: 100vh;
-     align-items: center;
-     justify-content: center;
-     display: flex;
-     z-index: 0;
-}
-
 #right,
 #left {
      max-height: 100vh;
@@ -270,7 +261,6 @@ a.button {
 
 #progressbar {
      display: flex;
-     position: absolute;
      bottom: 0px;
      width: 97.5vw;
      padding-left: 1.25vw;
@@ -279,6 +269,15 @@ a.button {
      background-color: none;
      transition: background-color 0.1s linear, height 0.2s linear;
      z-index: 1000;
+}
+
+#progressbar.normal {
+     margin-bottom: -25vh;
+     position: absolute;
+}
+
+#progressbar.long-strip {
+     position: fixed;
 }
 
 .progress {
@@ -324,10 +323,10 @@ a.button {
 #access-right,
 #access-left {
      display: flex;
-     position: absolute;
+     position: fixed;
+     top: 0;
      bottom: 0px;
      width: 35vw;
-     height: 100vh;
      transition: background-color 0.1s linear;
      cursor: pointer;
      z-index: 999;
@@ -343,23 +342,40 @@ a.button {
 
 #access-center {
      display: flex;
-     position: absolute;
+     position: fixed;
+     top: 0;
      bottom: 0px;
      width: 30vw;
-     height: 100vh;
      transition: background-color 0.1s linear;
      cursor: pointer;
      left: 35vw;
+     z-index: 999;
 }
 
-#access {
+#access.long-strip {
+     transition: visibility 0s, opacity 0.1s ease;
+     width: 50vw;
+     height: 50vh;
+     background-color: rgb(25, 25, 25);
+     border-radius: 5px;
+     left: 25vw;
+     top: 25vh;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     z-index: 1002;
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+}
+
+#access.normal {
      transition: visibility 0s, opacity 0.1s ease;
      width: 50vw;
      height: 50vh;
      background-color: rgb(25, 25, 25);
      border-radius: 5px;
      position: absolute;
-     bottom: 25vh;
+     margin-top: 25vh;
+     left: 25vw;
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
      z-index: 1002;
      user-select: none;
@@ -430,11 +446,48 @@ p.key {
 }
 
 #access-cover {
-     position: absolute;
+     position: fixed;
      height: 100vh;
      width: 100vw;
      bottom: 0px;
      left: 0px;
      background-color: rgba(0, 0, 0, 0.3);
      z-index: 1001;
+}
+
+#normal {
+     position: relative;
+     margin-top: 225px;
+     height: 100vh;
+     align-items: center;
+     justify-content: center;
+     display: flex;
+     z-index: 0;
+}
+
+#long-strip {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 225px;
+     z-index: 0;
+}
+
+.image {
+     max-width: 100vw;
+     max-height: 100vh;
+     width: auto;
+}
+
+@media screen and (max-height: 500px) {
+     .image {
+          max-height: 200vh;
+     }
+     
+}
+
+.loader {
+     position: fixed;
+     top: 100vh;
 }
