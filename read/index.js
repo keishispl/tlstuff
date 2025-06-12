@@ -186,6 +186,7 @@ function initializePage() {
                     var pages = array(chapter.pages);
                     var pageDiv = document.getElementById("long-strip");
 
+                    // Load images
                     for (var i = 0; i < pages.length; i++) {
                          var img = document.createElement("img");
                          img.id = "page_" + i;
@@ -195,6 +196,23 @@ function initializePage() {
                          pageDiv.appendChild(img);
                     }
 
+                    // Button for next chapter
+                    var btn = document.createElement("a");
+                    btn.id = "btn";
+                    btn.textContent = "Next Chapter";
+                    pageDiv.appendChild(btn);
+
+                    btn.addEventListener("click", () => {
+                         handleLeftArrow(jsonFromFile(`title/${urlParams.get('manga')}/data`));
+                    })
+
+                    // Margin div
+                    var div = document.createElement("div");
+                    div.id = "div";
+                    pageDiv.appendChild(div);
+
+
+                    // Change text in access menu
                     document.querySelectorAll('.key').forEach(element => {
                          element.innerHTML = element.innerHTML.replaceAll(" Page", " Chapter");
                     })
