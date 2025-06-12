@@ -59,6 +59,42 @@ function arrayThird(item) {
 }
 
 /**
+ * Retrieves the value of a specified cookie.
+ * If the cookie is not found, returns "rtl".
+ *
+ * @param {string} cname - The name of the cookie to retrieve.
+ * @returns {string} The value of the specified cookie or "rtl" if not found.
+ */
+function getCookie(cname) {
+     let name = cname + "=";
+     let decodedCookie = decodeURIComponent(document.cookie);
+     let ca = decodedCookie.split(';');
+     for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+          }
+     }
+     return "rtl";
+}
+
+var readmode = getCookie("reading-mode");
+
+// Reading mode button
+var readingButton = document.getElementById("reading-button");
+readingButton.addEventListener("change", () => {
+     if (readingButton.value === readmode) {
+          readingButton.value = "0";
+     } else {
+          document.cookie = `reading-mode=${readingButton.value};`;
+          location.reload();
+     }
+});
+
+/**
  * Initializes the page, sets up key event listeners, and handles navigation
  * based on URL parameters for the manga viewer.
  */
@@ -69,7 +105,7 @@ function initializePage() {
           if (arrayThird(manga.chapters).includes(`${urlParams.get('ch')}`)) {
                const chapter = jsonFromFile(`title/${urlParams.get('manga')}/${urlParams.get('ch')}/data`);
 
-               if (chapter.long_strip) {
+               if (chapter.long_strip || readmode === "ls") {
                     /**
                      * 
                      * 
@@ -102,6 +138,7 @@ function initializePage() {
 
                     setTitles(manga, chapter, urlParams);
 
+                    // Scroll for access menu
                     if (window.scrollY > window.innerHeight / 10 * 4 - 225) {
                          document.getElementById("access").style.position = "fixed";
                          document.getElementById("access").style.marginTop = "0px";
@@ -109,7 +146,17 @@ function initializePage() {
                          document.getElementById("access").style.position = "absolute";
                          document.getElementById("access").style.marginTop = `calc(40vh - 225px)`;
                     }
+
+                    // Scroll for reading mode button
+                    if (window.scrollY > window.innerHeight / 10 * 4 - 225) {
+                         document.getElementById("reading-button").style.position = "fixed";
+                         document.getElementById("reading-button").style.marginTop = "10px";
+                    } else {
+                         document.getElementById("reading-button").style.position = "absolute";
+                         document.getElementById("reading-button").style.marginTop = `235px`;
+                    }
                     document.addEventListener("scroll", () => {
+                         // Scroll for access menu
                          if (window.scrollY > window.innerHeight / 10 * 4 - 225) {
                               document.getElementById("access").style.position = "fixed";
                               document.getElementById("access").style.marginTop = "0px";
@@ -117,7 +164,24 @@ function initializePage() {
                               document.getElementById("access").style.position = "absolute";
                               document.getElementById("access").style.marginTop = `calc(40vh - 225px)`;
                          }
+
+                         // Scroll for reading mode button
+                         if (window.scrollY > window.innerHeight / 10 * 4 - 225) {
+                              document.getElementById("reading-button").style.position = "fixed";
+                              document.getElementById("reading-button").style.marginTop = "10px";
+                         } else {
+                              document.getElementById("reading-button").style.position = "absolute";
+                              document.getElementById("reading-button").style.marginTop = `235px`;
+                         }
                     })
+
+                    // Long Strip only mangas
+                    if (chapter.long_strip) {
+                         for (var i = 0; i < readingButton.length; i++) {
+                              if (readingButton.options[i].value == 'rtl')
+                                   readingButton.remove(i);
+                         }
+                    }
 
                     var pages = array(chapter.pages);
                     var pageDiv = document.getElementById("long-strip");

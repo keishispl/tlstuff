@@ -70,6 +70,7 @@ header {
      z-index: 5001;
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
 }
+
 #page-button {
      cursor: pointer;
      width: 200px;
@@ -86,7 +87,8 @@ header {
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
 }
 
-#chapter-button-text,#page-button-text {
+#chapter-button-text,
+#page-button-text {
      position: absolute;
      top: 0px;
      right: 0px;
@@ -95,7 +97,8 @@ header {
      font-size: 10px;
 }
 
-#chapter-button-value,#page-button-value {
+#chapter-button-value,
+#page-button-value {
      position: absolute;
      right: 0px;
      bottom: 0px;
@@ -136,24 +139,33 @@ header {
      box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
 }
 
-.spec-chapter,.spec-page {
+.spec-chapter,
+.spec-page {
      margin: 2.5px 15px 2.5px 10px;
      padding: 5px 0px 5px 10px;
      text-align: left;
      border-radius: 5px;
 }
-.spec-chapter:hover,.spec-page:hover {
+
+.spec-chapter:hover,
+.spec-page:hover {
      background-color: rgba(50, 50, 50, 0.3)
 }
-.spec-chapter>a,.spec-page>a {
+
+.spec-chapter>a,
+.spec-page>a {
      text-decoration: none;
 }
 
-.spec-chapter-current,.spec-chapter-current:hover,.spec-page-current,.spec-page-current:hover {
+.spec-chapter-current,
+.spec-chapter-current:hover,
+.spec-page-current,
+.spec-page-current:hover {
      background-color: purple;
 }
 
-.spec-chapter-link,.spec-page-link {
+.spec-chapter-link,
+.spec-page-link {
      flex-wrap: wrap;
      display: flex;
 }
@@ -184,10 +196,15 @@ header {
           width: 50vw;
           margin-left: 5vw;
      }
+
      #chapter {
           margin-top: 5vw;
      }
-     #chapter-button,#page-button,#chapters,#pages {
+
+     #chapter-button,
+     #page-button,
+     #chapters,
+     #pages {
           width: 150px;
      }
 }
@@ -484,10 +501,36 @@ p.key {
      .image {
           max-height: 200vh;
      }
-     
+
 }
 
 .loader {
      position: fixed;
      top: 100vh;
+}
+
+#reading-button {
+     cursor: pointer;
+     width: fit-content;
+     height: 25px;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     margin-top: 235px;
+     margin-right: 10px;
+     background-color: rgb(44, 44, 44);
+     border-radius: 10px;
+     text-align: left;
+     z-index: 4901;
+     box-shadow: rgba(0, 0, 0, 0.3) 1px 2px 4px;
+     transition: background-color 0.1s linear;
+     color: #cecfd0;
+}
+
+#reading-button:hover {
+     background-color: rgb(55, 55, 55);
+}
+
+#reading-button:focus {
+     outline: none;
 }
